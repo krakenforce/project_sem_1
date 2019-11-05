@@ -1,10 +1,6 @@
 <?php
 
-class ShowPhp {
-    static function showMessage($message){
-        echo "<script>alert(\"$message\");</script>";
-    }
-}
+include_once '../includes/functions.php';
 
 class Database {
     private $dns = "mysql:host=localhost; dbname=ac_sell; charset=utf8";
@@ -12,13 +8,14 @@ class Database {
     private $password = "123456";
     private $pdo;
     private $stmt;
+
     public function __construct(){
         try{
             $this->pdo = new PDO($this->dns, $this->username, $this->password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch(PDOException $exception){
-            ShowPhp::showMessage($exception->getMessage());
+            self::showMessage($exception->getMessage());
         }
     }
     public function closeConn(){
@@ -30,7 +27,7 @@ class Database {
             $this->stmt->execute();
             return $this->stmt;
         }catch (PDOException $e){
-            ShowPhp::showMessage($e->getMessage());
+            self::showMessage($e->getMessage());
         }
     }
 
@@ -48,9 +45,12 @@ class Database {
                 return $result;
             }
         }catch(PDOException $e) {
-           // ShowPhp::showMessage($exception->getMessage());
             echo "query failed: " . $e->getMessage();
         }
+    }
+
+    public static function showMessage($message){
+        echo "<script>alert(\"$message\");</script>";
     }
 
 }

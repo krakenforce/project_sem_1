@@ -3,7 +3,7 @@
 include_once '../includes/functions.php';
 
 class Product {
-    public $id;
+    public $product_id;
     public $name;
     public $price;
     public $download;
@@ -12,6 +12,7 @@ class Product {
     public $description;
     public $photo;
     public $pro_status;
+    public $category_id;
 
 
     public static function find_all_products()

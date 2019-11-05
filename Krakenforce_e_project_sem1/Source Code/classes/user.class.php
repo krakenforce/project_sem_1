@@ -7,7 +7,7 @@ class User {
     // table: users
     // đổi các properties này thành tên giống trong user-table của database:
 
-    public $userid;
+    public $user_id;
     public $password;
     public $username;
 

@@ -1,8 +1,9 @@
 <?php
 
-include_once '../includes/functions.php';
+include_once dirname(__FILE__, 2) . '/includes/functions.php';
 
 class Product {
+
     public $product_id;
     public $name;
     public $price;

@@ -9,8 +9,20 @@ function autoloader($class){
 
     // $url = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
+
     $class = strtolower($class);
-    $path = "../classes/";
+    $working_folder_name = "source code";
+    $current_path = getcwd();
+    $current_folder_name = basename($current_path);
+
+    $path = "classes/";
+
+    while (strtolower($current_folder_name) != $working_folder_name) {
+        $current_path = dirname($current_path);
+        $current_folder_name = basename($current_path);
+        $path = "../" . $path;
+    }
+
     $extension = ".class.php";
     $fullPath = $path . $class . $extension;
 

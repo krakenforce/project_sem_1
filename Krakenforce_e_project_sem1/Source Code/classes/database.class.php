@@ -1,12 +1,13 @@
 <?php
 
-include_once '../includes/functions.php';
+include_once dirname(__FILE__, 2) . '/includes/functions.php';
+include_once dirname(__FILE__, 2) . '/includes/config.php';
 
 class Database {
-    private $dns = "mysql:host=localhost; dbname=ac_sell; charset=utf8";
-    private $username = "krakenforce";
-    private $password = "123456";
-    private $pdo;
+    private $dns = DSN;
+    private $username = DB_USER;
+    private $password = DB_PASSWORD;
+    public $pdo;
     private $stmt;
 
     public function __construct(){

@@ -46,7 +46,7 @@ class Database {
                 return $result;
             }
         }catch(PDOException $e) {
-            echo "query failed: " . $e->getMessage();
+            die("query failed: " . $e->getMessage());
         }
     }
 

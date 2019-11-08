@@ -81,4 +81,14 @@ class Product {
         $result_set = self::findThis_query("SELECT * from product inner join product_detail on product.pro_id = product_detail.pro_id where product.type = '$type';");
         return $result_set;
     }
+
+    public static function delete_products_by_id($id)
+    {
+        $conn = new Database();
+        $sql = "DELETE FROM product where pro_id = $id;";
+        $result = $conn->pdo->query($sql);
+        return $result;
+    }
+
+
 }

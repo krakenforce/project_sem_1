@@ -82,11 +82,12 @@ class Product {
         return $result_set;
     }
 
-    public static function delete_products_by_id($id)
+    public static function delete_product_by_id($id)
     {
         $conn = new Database();
-        $sql = "DELETE FROM product where pro_id = $id;";
-        $result = $conn->pdo->query($sql);
+        $sql = "DELETE FROM product where pro_id = ?;";
+        $param = [$id];
+        $result = $conn->query_with_params($sql, $param);
         return $result;
     }
 

@@ -9,10 +9,17 @@ foreach ($products as $product){
 };
 
 ?>
+
+<div>
+    <form action="add.php">
+        <button class="btn-primary">Add product</button>
+    </form>
+</div>
 <div>
     <form action="logout.php">
         <button class="btn-primary">Sign out</button>
     </form>
 </div>
+
 </body>
 </html>

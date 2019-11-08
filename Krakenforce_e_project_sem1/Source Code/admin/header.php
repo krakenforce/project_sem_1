@@ -1,7 +1,7 @@
 <?php include "../includes/functions.php"; include_once '../includes/config.php';
 
 $session = new Session();
-
+$db = new Database();
 if(!$session->is_signed_in()){
     // neu khong signed in, redirect-> login.php (tru khi dang o login.php)
     $url = $_SERVER["REQUEST_URI"];

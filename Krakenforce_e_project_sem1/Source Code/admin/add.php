@@ -1,46 +1,46 @@
-<?php $title = "add page"; include 'header.php'; ?>
-<?
-$db = new Database();
-if ($_SERVER['REQUEST_METHOD'] == 'POST'):
-    if ($_FILES['photo']['name'] != ''):
-        move_uploaded_file($_FILES['photo']['tmp_name'], 'photos/' . $_FILES['photo']['name']);
-        $image = 'photos/' . $_FILES['photo']['name'];
-    else:
-        $image = $_POST['defaultPhoto'];
+<?php $title = "add page"; include_once 'header.php'; ?>
+
+<?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+        if ($_FILES['photo']['name'] != '') {
+            move_uploaded_file($_FILES['photo']['tmp_name'], 'photos/' . $_FILES['photo']['name']);
+            $image = 'photos/' . $_FILES['photo']['name'];
+        }else {
+            $image = $_POST['defaultPhoto'];
+        }
+        if ($_FILES['download']['name'] != '') {
+            move_uploaded_file($_FILES['download']['tmp_name'], 'downloads/' . $_FILES['download']['name']);
+            $download = 'downloads/' . $_FILES['download']['name'];
+        }else {
+            $download = '';
+        }
+        $statement = "INSERT INTO product(product_code,name,price,brand,type,image,download) values (?, ?, ?, ?, ?, ?, ?)";
+        $param = [
+            $_POST['product_code'],
+            $_POST['name'],
+            $_POST['price'],
+            $_POST['brand'],
+            $_POST['type'],
+            $image,
+            $download
+        ];
+        $statement2 = "UPDATE product_detail SET model = ?,color  = ?, ton = ?,cooling_cap = ?,heating_cap = ?,pw_input = ?,eer = ?,fea_01 = ?,fea_02 = ?,fea_03  = ? where pro_id = LAST_INSERT_ID();";
+        $param2 = [
+            $_POST['model'],
+            $_POST['color'],
+            $_POST['ton'],
+            $_POST['cooling_cap'],
+            $_POST['heating_cap'],
+            $_POST['pw_input'],
+            $_POST['eer'],
+            $_POST['fea_01'],
+            $_POST['fea_02'],
+            $_POST['fea_03'],
+        ];
+        $db->query_with_params($statement, $param);
+        $db->query_with_params($statement2, $param2);
+        //header("location: admin_index.php");
     endif;
-    if ($_FILES['download']['name'] != '') {
-        move_uploaded_file($_FILES['download']['tmp_name'], 'downloads/' . $_FILES['download']['name']);
-        $download = 'downloads/' . $_FILES['download']['name'];
-    }else {
-        $download = '';
-    }
-    $statement = "INSERT INTO product(product_code,name,price,brand,type,image,download) values (?, ?, ?, ?, ?, ?, ?)";
-    $param = [
-        $_POST['product_code'],
-        $_POST['name'],
-        $_POST['price'],
-        $_POST['brand'],
-        $_POST['type'],
-        $image,
-        $download
-    ];
-    $statement2 = "UPDATE product_detail SET model = ?,color  = ?, ton = ?,cooling_cap = ?,heating_cap = ?,pw_input = ?,eer = ?,fea_01 = ?,fea_02 = ?,fea_03  = ? where pro_id = LAST_INSERT_ID();";
-    $param2 = [
-        $_POST['model'],
-        $_POST['color'],
-        $_POST['ton'],
-        $_POST['cooling_cap'],
-        $_POST['heating_cap'],
-        $_POST['pw_input'],
-        $_POST['eer'],
-        $_POST['fea_01'],
-        $_POST['fea_02'],
-        $_POST['fea_03'],
-    ];
-    $db->query_with_params($statement, $param);
-    $db->query_with_params($statement2, $param2);
-    //header("location: admin_index.php");
-endif;
 
 ?>
 
@@ -157,7 +157,7 @@ endif;
     <br/><br/>
 
 </div>
-</div>
+
 </body>
 
 </html>

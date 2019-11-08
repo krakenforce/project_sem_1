@@ -4,16 +4,26 @@ include_once dirname(__FILE__, 2) . '/includes/functions.php';
 
 class Product {
 
-    public $product_id;
-    public $name;
-    public $price;
-    public $download;
-    public $type;
-    public $quantity;
-    public $description;
-    public $photo;
-    public $pro_status;
-    public $category_id;
+    public $product_info = array(
+        'pro_id' => null,
+        'product_code' => null,
+        'name' => null,
+        'price' => null,
+        'brand' => null,
+        'type' => null,
+        'image' => null,
+        'download' => null,
+        'model' => null,
+        'color' => null,
+        'ton' => null,
+        'cooling_cap'=> null,
+        'heating_cap' => null,
+        'pw_input' => null,
+        'eer' => null,
+        'fea_01'=> null,
+        'fea_02'=> null,
+        'fea_03'=> null
+    );
 
 
     public static function find_all_products()
@@ -23,7 +33,7 @@ class Product {
 
     public static function find_product_by_id($id)
     {
-        $result_set = self::findThis_query("SELECT * from product where id= $id LIMIT 1;");
+        $result_set = self::findThis_query("SELECT * from product where pro_id= $id LIMIT 1;");
         return !empty($result_set) ? array_shift($result_set) : false ;
     }
 
@@ -34,7 +44,7 @@ class Product {
         $result_set = $conn->pdo->query($sql);
         $array_of_objects = array();
         while ($row = $result_set->fetch(PDO::FETCH_ASSOC)){
-            $array_of_objects[] = self::instantiate($row);
+            $array_of_objects[$row['pro_id']] = self::instantiate($row);
         }
         return $array_of_objects;
     }
@@ -45,7 +55,7 @@ class Product {
 
         foreach ($row as $attribute => $value) {
             if($object->attribute_exists($attribute)){
-                $object->$attribute = $value;
+                $object->product_info[$attribute] = $value;
             }
         }
         return $object;
@@ -54,13 +64,21 @@ class Product {
 
     private function attribute_exists($attribute)
     {
-        $object_attributes = get_object_vars($this);
+        $object_attributes = $this->product_info;
         return key_exists($attribute, $object_attributes);
     }
 
-    public function find_products_by_brand($brand)
+    public static function find_products_by_brand($brand)
     {
-        $result_set = self::findThis_query("SELECT * from product left join category on product.category_id = category.category_id where category_name = $brand;");
+        $brand = strtolower(trim($brand));
+        $result_set = self::findThis_query("SELECT * from product inner join product_detail on product.pro_id = product_detail.pro_id where product.brand = '$brand';");
+        return $result_set;
+    }
+
+    public static function find_products_by_type($type)
+    {
+        $type = strtolower(trim($type));
+        $result_set = self::findThis_query("SELECT * from product inner join product_detail on product.pro_id = product_detail.pro_id where product.type = '$type';");
         return $result_set;
     }
 }

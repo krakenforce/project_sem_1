@@ -7,7 +7,7 @@ class Database {
     private $dns = DSN;
     private $username = DB_USER;
     private $password = DB_PASSWORD;
-    private $pdo;
+    public $pdo;
     private $stmt;
 
     public function __construct(){

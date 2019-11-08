@@ -1,4 +1,4 @@
-<?php include "../includes/functions.php";
+<?php include "../includes/functions.php"; include_once '../includes/config.php';
 
 $session = new Session();
 

@@ -10,7 +10,7 @@ if($session->is_signed_in() == true){
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    if($username == "krakenforce" && $password == "123456") {
+    if($username == ADMIN_USER && $password == ADMIN_PASSWORD) {
         $_SESSION['user_id'] = "krakenforce";
         $session->signed_in = true;
         header("location: admin_index.php");

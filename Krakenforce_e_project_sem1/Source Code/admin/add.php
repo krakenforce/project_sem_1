@@ -39,7 +39,7 @@
         ];
         $db->query_with_params($statement, $param);
         $db->query_with_params($statement2, $param2);
-        //header("location: admin_index.php");
+        header("location: admin_index.php");
     endif;
 ?>
 <!doctype html>

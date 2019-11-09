@@ -1,23 +1,23 @@
 <section id="sec_04">
     <div>
-        <a href="mitsubishi.php">
-            <img src="mitsubishi-img/mitsubishi_logo.png"
+        <a href="brand/mitsubishi.php">
+            <img src="images/mitsubishi_logo.png"
                  alt="" draggable="false">
         </a>
-        <a href="orient.php">
-            <img src="mitsubishi-img/orient_logo.png"
+        <a href="brand/orient.php">
+            <img src="images/orient_logo.png"
                  alt="" draggable="false">
         </a>
-        <a href="lg.php">
-            <img src="mitsubishi-img/lg_logo.png"
+        <a href="brand/lg.php">
+            <img src="images/lg_logo.png"
                  alt="" draggable="false">
         </a>
-        <a href="Sanyo.php">
-            <img src="mitsubishi-img/sanyo_logo.png"
+        <a href="brand/sanyo.php">
+            <img src="images/sanyo_logo.png"
                  alt="" draggable="false">
         </a>
-        <a href="carrier.php">
-            <img src="mitsubishi-img/carrier_logo.png"
+        <a href="brand/carrier.php">
+            <img src="images/carrier_logo.png"
                  alt="" draggable="false">
         </a>
     </div>
@@ -28,33 +28,33 @@
             <span>COSY Air Conditioners</span> © 2016
         </div>
         <div class="footer_nav">
-            <a href="../index.php">Home</a>
+            <a href="index.php">Home</a>
             <span>|</span>
-            <a href="About.php">About</a>
+            <a href="about.php">About</a>
             <span>|</span>
             <a onclick="bNav_brands()">Brands
             </a>
             <div id="brands_div"><a onclick="bNav_brands()">
-                </a><a href="mitsubishi.php">Mitsubishi</a>
+                </a><a href="brand/mitsubishi.php">Mitsubishi</a>
                 <span>|</span>
-                <a href="carrier.php">Carrier</a>
+                <a href="brand/carrier.php">Carrier</a>
                 <span>|</span>
-                <a href="orient.php">Orient</a>
+                <a href="brand/orient.php">Orient</a>
                 <span>|</span>
-                <a href="Sanyo.php">Sanyo</a>
+                <a href="brand/sanyo.php">Sanyo</a>
                 <span>|</span>
-                <a href="lg.php">LG</a>
+                <a href="brand/lg.php">LG</a>
             </div>
 
             <span>|</span>
             <a onclick="bNav_products()">Products
             </a>
             <div id="products_div"><a onclick="bNav_products()">
-                </a><a href="split.php">Split AC</a>
+                </a><a href="product/splitac.php">Split AC</a>
                 <span>|</span>
-                <a href="cabinet.php">Cabinet AC</a>
+                <a href="product/cabinetac.php">Cabinet AC</a>
                 <span>|</span>
-                <a href="cassette.php">Cassette AC</a>
+                <a href="product/cassetteac.php">Cassette AC</a>
             </div>
 
             <span>|</span>
@@ -64,8 +64,10 @@
         </div>
     </footer>
 </section>
-<script src="mitsubishi-img/sctotop.js"></script>
+<script type="text/javascript" src="../../js/scrolltotop.js"></script>
 </main>
+
+
 
 </body>
 </html>

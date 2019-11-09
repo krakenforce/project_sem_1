@@ -6,7 +6,7 @@ class Session
 {
 
     public $user_id;
-    public $signed_in = false;
+    private $signed_in = false;
 
     function __construct()
     {

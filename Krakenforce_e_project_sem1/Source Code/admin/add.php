@@ -1,13 +1,13 @@
-<?php $title = "add page"; include_once 'header.php'; ?>
-
 <?php
+    require_once("../includes/functions.php");
+    $db = new Database();
     if ($_SERVER['REQUEST_METHOD'] == 'POST'):
-        if ($_FILES['photo']['name'] != '') {
+        if ($_FILES['photo']['name'] != ''):
             move_uploaded_file($_FILES['photo']['tmp_name'], 'photos/' . $_FILES['photo']['name']);
             $image = 'photos/' . $_FILES['photo']['name'];
-        }else {
+        else:
             $image = $_POST['defaultPhoto'];
-        }
+        endif;
         if ($_FILES['download']['name'] != '') {
             move_uploaded_file($_FILES['download']['tmp_name'], 'downloads/' . $_FILES['download']['name']);
             $download = 'downloads/' . $_FILES['download']['name'];
@@ -39,11 +39,24 @@
         ];
         $db->query_with_params($statement, $param);
         $db->query_with_params($statement2, $param2);
-        //header("location: admin_index.php");
+        header("location: admin_index.php");
     endif;
-
 ?>
+<!doctype html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
 <h1 class="text-center" style="color: #0A6BD3">Cosy Aircondition Adminstrator</h1>
 <div>
     <a href="admin_index.php" style="text-decoration: none">
@@ -79,25 +92,25 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="">Ton: </label>
-                <input type="number" step="0.01" name="ton" id="" class="form-control" placeholder="Enter product ton" value="0">
+                <input type="number" step="0.01" name="ton" id="" class="form-control" placeholder="Enter product ton">
             </div>
             <div class="form-group col-md-4">
                 <label for="">Cooling capacity: </label>
-                <input type="number" name="cooling_cap" id="" class="form-control" placeholder="Enter cooling capacity"value="0">
+                <input type="number" name="cooling_cap" id="" class="form-control" placeholder="Enter cooling capacity">
             </div>
             <div class="form-group col-md-4">
                 <label for="">Heating capacity: </label>
-                <input type="number" name="heating_cap" id="" class="form-control" placeholder="Enter heating capacity"value="0">
+                <input type="number" name="heating_cap" id="" class="form-control" placeholder="Enter heating capacity">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="">Power Input: </label>
-                <input type="number" name="pw_input" id="" class="form-control" placeholder="Enter Power Input" value="0">
+                <input type="number" name="pw_input" id="" class="form-control" placeholder="Enter Power Input">
             </div>
             <div class="form-group col-md-6">
                 <label for="">EER: </label>
-                <input type="text" name="eer" id="" class="form-control" placeholder="Enter EER" value="0">
+                <input type="text" name="eer" id="" class="form-control" placeholder="Enter EER">
             </div>
         </div>
         <div class="form-row">
@@ -117,7 +130,7 @@
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="">Price: </label>
-                <input type="number" name="price" id="" class="form-control" placeholder="Enter price (number)" value="0">
+                <input type="number" name="price" id="" class="form-control" placeholder="Enter price (number)">
             </div>
 
             <div class="form-group col-md-9">
@@ -157,7 +170,7 @@
     <br/><br/>
 
 </div>
-
+</div>
 </body>
 
 </html>

@@ -1,4 +1,6 @@
 <?php
+// các function/ method các loại mà không muốn để trong classes
+
 
 //--------- tự load classes: -------
 spl_autoload_register('autoloader');

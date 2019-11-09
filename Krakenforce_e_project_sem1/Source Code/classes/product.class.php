@@ -28,12 +28,12 @@ class Product {
 
     public static function find_all_products()
     {
-        return self::findThis_query('SELECT * from product;');
+        return self::findThis_query('SELECT * FROM product INNER JOIN product_detail pd on product.pro_id = pd.pro_id;');
     }
 
     public static function find_product_by_id($id)
     {
-        $result_set = self::findThis_query("SELECT * from product where pro_id= $id LIMIT 1;");
+        $result_set = self::findThis_query("SELECT * FROM product INNER JOIN product_detail ON product.pro_id = product_detail.pro_id WHERE product.pro_id= $id LIMIT 1;");
         return !empty($result_set) ? array_shift($result_set) : false ;
     }
 
@@ -81,15 +81,4 @@ class Product {
         $result_set = self::findThis_query("SELECT * from product inner join product_detail on product.pro_id = product_detail.pro_id where product.type = '$type';");
         return $result_set;
     }
-
-    public static function delete_product_by_id($id)
-    {
-        $conn = new Database();
-        $sql = "DELETE FROM product where pro_id = ?;";
-        $param = [$id];
-        $result = $conn->query_with_params($sql, $param);
-        return $result;
-    }
-
-
 }

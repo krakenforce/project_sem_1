@@ -1,1 +1,0 @@
-thư mục chứa các files mà sẽ bị function "include" gọi.

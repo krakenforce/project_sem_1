@@ -36,6 +36,7 @@
         $statement = "SELECT * FROM product " . $paging->get_limit();
         $stmt = $db->selectData($statement);
     endif;
+    $products = Product::find_all_products();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,126 +70,134 @@
             <th scope="col">Product Code</th>
             <th scope="col">Product Name</th>
             <th scope="col">Price</th>
+            <th scope="col">Image</th>
             <th scope="col">View More</th>
             <th scope="col">Update</th>
             <th scope="col">Delete</th>
         </tr>
         </thead>
-        <?php while ($product = $stmt->fetch(PDO::FETCH_ASSOC)):
-            extract($product); ?>
+        <?php foreach ($products as $product): ?>
             <tr>
                 <td scope="row">
-                    <? echo $pro_id ?>
+                    <?php echo $product->product_info['pro_id']; ?>
                 </td>
                 <td scope="row">
-                    <? echo $product_code ?>
+                    <?php echo $product->product_info['product_code']; ?>
                 </td>
                 <td scope="row">
-                    <? echo $name ?>
+                    <?php echo $product->product_info['name']; ?>
                 </td>
                 <td scope="row">
-                    <? echo $price ?>
+                    <?php echo $product->product_info['price']; ?>
                 </td>
                 <td scope="row">
-                    <img height="100px" width="auto" src="photos/<?= $images ?>" alt="">
+                    <img height="100px" width="auto" src="<?php echo $product->product_info['image']; ?>" alt="">
                 </td>
                 <td scope="row">
-                    <a href="#" id="view-btn">View More</a>
-                    <div class="container" style="display: none" id="pop-up-wd">
+                    <button id="view-btn">Viewmore</button>
+                    <div class="container" id="pop-up-wd" style="display: none">
                         <div class="form-row">
-                            <img height="100px" width="auto" src="photos/<?= $images ?>" alt="">
+                            <img height="100px" width="auto" src="photos/<?php echo $product->product_info['image']; ?>" alt="">
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-1">
                                 <label for="pro_id">Product ID</label>
-                                <input type="text" name="" id="" value="<?= $row['pro_id'] ?>">
+                                <input type="text" name="" id="" value="<?php echo $product->product_info['pro_id']; ?>">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="pro_code">Product Code</label>
-                                <input type="text" name="" id="" value="<?= $row['product_code'] ?>">
+                                <input type="text" name="" id="" value="<?php echo $product->product_info['product_code']; ?>">
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="name">Name</label>
-                                <input type="text" name="" id="" value="<?= $row['name'] ?>">
+                                <input type="text" name="" id="" value="<?php echo $product->product_info['name']; ?>">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="brand">Brand</label>
-                                <input type="text" name="" id="" value="<?= $row['brand'] ?>">
+                                <input type="text" name="" id="" value="<?php echo $product->product_info['brand'];?>">
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="type">Name</label>
-                                <input type="text" name="" id="" value="<?= $row['type'] ?>">
+                                <input type="text" name="" id="" value="<?php echo $product->product_info['name']; ?>">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-2">
                                 <label for="model">Model</label>
-                                <input type="text" name="" id="" value="<?= $row['model'] ?>">
+                                <input type="text" name="" id="" value="<?php echo $product->product_info['model'];?>">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="color">Color</label>
-                                <input type="text" name="" id="" value="<?= $row['color'] ?>">
+                                <input type="text" name="" id="" value="<?php echo $product->product_info['color']; ?>">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="ton">Ton</label>
-                                <input type="text" name="" id="" value="<?= $row['ton'] ?>">
+                                <input type="text" name="" id="" value="<?php echo $product->product_info['ton'];?>">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="cooling_cap">Cooling Capacity</label>
-                                <input type="text" name="" id="" value="<?= $row['cooling_cap'] ?>">
+                                <input type="text" name="" id="" value="<?php echo $product->product_info['cooling_cap'];?>">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="heating_cap">Heating Capacity</label>
-                                <input type="text" name="" id="" value="<?= $row['heating_cap'] ?>">
+                                <input type="text" name="" id="" value="<?php echo $product->product_info['heating_cap']; ?>">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="pw_input">Power Input</label>
-                                <input type="text" name="" id="" value="<?= $row['pw_input'] ?>">
+                                <input type="text" name="" id="" value="<?php echo $product->product_info['pw_input']; ?>">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-2">
                                 <label for="pw_input">Power Input</label>
-                                <input type="text" name="" id="" value="<?= $row['pw_input'] ?>">
+                                <input type="text" name="" id="" value="<?php echo $product->product_info['pw_input']; ?>">
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="fea_01">Feature 1</label>
-                                <input type="text" name="" id="" value="<?= $row['fea_01'] ?>">
+                                <input type="text" name="" id="" value="<?php echo $product->product_info['fea_01'];?>">
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="fea_02">Feature 2</label>
-                                <input type="text" name="" id="" value="<?= $row['fea_02'] ?>">
+                                <input type="text" name="" id="" value="<?php echo $product->product_info['fea_02'];?>">
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="fea_03">Feature 3</label>
-                                <input type="text" name="" id="" value="<?= $row['fea_03'] ?>">
+                                <input type="text" name="" id="" value="<?php echo $product->product_info['fea_03']; ?>">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-3">
                                 <label for="download">Detail Information Download File</label>
-                                <input type="text" name="" id="" value="<?= $row['download'] ?>">
+                                <input type="text" name="" id="" value="<?php echo $product->product_info['download'];?>">
                             </div>
                         </div>
                     </div>
                     <script>
-                        $(document).ready(function ()
-                        {
-                            $('#pop-up-wd').hide();
-                            $('#view-btn').live('click',function (event) {
-                                $('#pop-up-wd').toggle('show')
-                            });
-                        });
+                       function show(){
+                           $('#pop-up-wd').hide(); //ADD THIS
+                           $('#view-btn').live('click', function (event)
+                           {
+
+                               $('#pop-up-wd').toggle('show');
+                           });
+                           $('#view-btn').click(function () {
+                               $('#pop-up-wd').toggle('slow',function () {
+
+                               })
+                           })
+                       }
+                       
                     </script>
                 </td>
                 <td scope="row">
-                    <a href="add.php?pro_id=<?= $pro_id ?>">Update</a>
+                    <a href="add.php?pro_id=<?=$product->product_info['pro_id']; ?>">Update</a>
                 </td>
                 <td scope="row">
-                    <a href="delete.php?pro_id<?= $pro_id ?>">Delete</a>
+                    <a href="delete.php?pro_id<?= $product->product_info['pro_id']; ?>">Delete</a>
                 </td>
             </tr>
-        <?php endwhile;
+        <?php
+             endforeach;
             $db->closeConn();
         ?>
     </table>

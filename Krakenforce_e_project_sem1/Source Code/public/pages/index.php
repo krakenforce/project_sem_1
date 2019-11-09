@@ -4,6 +4,7 @@
             <div class="image_slider">
                 <div id="slider-container1">
                     <div class="ws_images">
+                    <script type="text/javascript" src="../../js/wowslider.js"></script>
                         <ul>
                             <li><img src="images/slide_img/slide_img_01.png" alt="" title=""
                                      id="wows1_0"/></li>
@@ -17,9 +18,8 @@
                                      id="wows1_4"/></li>
                         </ul>
                     </div>
-
                 </div>
-                <script type="text/javascript" src="../../js/wowslider.js"></script>
+                
             </div>
             <div class="text_slider">
                 <div class="slide-left">

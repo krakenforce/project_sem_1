@@ -28,12 +28,12 @@ class Product {
 
     public static function find_all_products()
     {
-        return self::findThis_query('SELECT * from product;');
+        return self::findThis_query('SELECT * from product inner join product_detail pd on product.pro_id = pd.pro_id;');
     }
 
     public static function find_product_by_id($id)
     {
-        $result_set = self::findThis_query("SELECT * from product where pro_id= $id LIMIT 1;");
+        $result_set = self::findThis_query("SELECT * from product inner join product_detail pd on product.pro_id = pd.pro_id where product.pro_id= $id LIMIT 1;");
         return !empty($result_set) ? array_shift($result_set) : false ;
     }
 
@@ -91,5 +91,7 @@ class Product {
         return $result;
     }
 
-
+    public static function find_products_by_string($string){
+        return self::findThis_query("SELECT * from product inner join product_detail pd on product.pro_id = pd.pro_id where concat(product.name,product.product_code,product.brand,product.type,pd.model, pd.color,pd.fea_01,pd.fea_02,pd.fea_03) like %'$string'%;");
+    }
 }

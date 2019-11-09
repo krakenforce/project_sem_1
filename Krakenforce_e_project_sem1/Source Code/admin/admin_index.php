@@ -2,15 +2,13 @@
 <h3>admin index page</h3>
 <h4>products:</h4>
 <?php
-
-$products = Product::find_all_products();
+$keyword = "mitsubishi";
+$products = Product::find_products_by_search($keyword);
 foreach ($products as $product){
-
-    echo $product->product_info['name'];
-    echo " (id: " . $product->product_info['pro_id'] . ")";
+   var_dump($product->product_info);
     echo "<br>";
 };
-
+//  echo " (id: " . $product->product_info['pro_id'] . ")";
 ?>
 
 

@@ -49,6 +49,17 @@ class Product {
         return $array_of_objects;
     }
 
+    public static function findThis_query_prepared($sql, $param)
+    {
+        $conn = new Database();
+        $result_set = $conn->query_with_params($sql, $param);
+        $array_of_objects = array();
+        while ($row = $result_set->fetch(PDO::FETCH_ASSOC)){
+            $array_of_objects[$row['pro_id']] = self::instantiate($row);
+        }
+        return $array_of_objects;
+    }
+
     public static function instantiate($row)
     {
         $object = new self;
@@ -91,7 +102,11 @@ class Product {
         return $result;
     }
 
-    public static function find_products_by_string($string){
-        return self::findThis_query("SELECT * from product inner join product_detail pd on product.pro_id = pd.pro_id where concat(product.name,product.product_code,product.brand,product.type,pd.model, pd.color,pd.fea_01,pd.fea_02,pd.fea_03) like %'$string'%;");
+    public static function find_products_by_search($keyword){
+        $keyword = trim(strtolower($keyword));
+        $parameter = ["%{$keyword}%"];
+        $sql = "SELECT * from product inner join product_detail pd on product.pro_id = pd.pro_id where (LOWER (CONCAT_WS(product.pro_id, product.name, product.product_code, product.brand, product.type, pd.model, pd.eer, pd.color, pd.fea_01,pd.fea_02,pd.fea_03)) like ? );";
+        return self::findThis_query_prepared($sql, $parameter);
+
     }
 }

@@ -1,4 +1,6 @@
-<?php include "../includes/functions.php"; include_once '../includes/config.php';
+<?php
+include_once dirname(__FILE__, 2) . '/includes/functions.php';
+include_once dirname(__FILE__, 2) . '/includes/config.php';
 
 $session = new Session();
 $db = new Database();

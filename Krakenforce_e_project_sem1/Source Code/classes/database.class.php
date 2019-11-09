@@ -43,7 +43,7 @@ class Database {
                 return $this->stmt;
             }else {
                 //nếu không phải là lệnh select thì return true(1) hoặc false(0):
-                return $result;
+                return (!$result)? false : true;
             }
         }catch(PDOException $e) {
             die("query failed: " . $e->getMessage());

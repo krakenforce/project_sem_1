@@ -81,4 +81,10 @@ class Product {
         $result_set = self::findThis_query("SELECT * from product inner join product_detail on product.pro_id = product_detail.pro_id where product.type = '$type';");
         return $result_set;
     }
+    public static function find_product_by_brand_and_type($brand,$type){
+        $brand = strtolower(trim($brand));
+        $type = strtolower(trim($type));
+        $result_set = self::findThis_query("SELECT * FROM product INNER JOIN product_detail pd on product.pro_id = pd.pro_id WHERE brand = '$brand' AND type = '$type';");
+        return $result_set;
+    }
 }

@@ -1,7 +1,6 @@
 <?php
     require_once('../../../includes/functions.php');
     $db = new Database();
-    
     $products = Product::find_product_by_brand_and_type('Mitsubishi', 'Split AC');
     $products2 = Product::find_product_by_brand_and_type('Mitsubishi', 'Cabinet AC');
     $products3 = Product::find_product_by_brand_and_type('Mitsubishi', 'Cassette AC');
@@ -63,7 +62,7 @@
                         <?php foreach ($products as $product): ?>
                             <div class="product-Box_pD1">-->
                                 <div class="product-Box_image_pD1">
-                                    <img src="<?php echo $product->product_info['image']; ?>" alt="" draggable="false">
+                                    <img src="../../../admin/<?php echo $product->product_info['image']; ?>" alt="" draggable="false">
                                 </div>
                                 <div class="product-Box_detail_pD1">
                                     <h2><?php echo $product->product_info['brand']; ?></h2>
@@ -98,7 +97,7 @@
                         <?php foreach ($products2 as $product2): ?>
                             <div class="product-Box_pD2">
                                 <div class="product-Box_image_pD2">
-                                    <img src="<?php echo $product2->product_info['image']; ?>" alt="" draggable="false">
+                                    <img src="../../../admin/<?php echo $product2->product_info['image']; ?>" alt="" draggable="false">
                                 </div>
                                 <div class="product-Box_detail_pD2">
                                     <h2><?php echo $product2->product_info['brand']; ?></h2>
@@ -131,7 +130,7 @@
                         <?php foreach ($products3 as $product3): ?>
                             <div class="product-Box_pD3">
                                 <div class="product-Box_image_pD3">
-                                    <img src="<?php echo $product3->product_info['image']; ?>" alt="" draggable="false">
+                                    <img src="../../../admin/<?php echo $product3->product_info['image']; ?>" alt="" draggable="false">
                                 </div>
                                 <div class="product-Box_detail_pD3">
                                     <h2><?php echo $product3->product_info['brand']; ?></h2>
@@ -150,8 +149,8 @@
         </div>
     </section>
     <?php $db->closeConn(); ?>
-    <?php include './Product_Detail Box.php' ?>
-    <?php require 'footer.php' ?>
+    <?php include './Product_Detail Box.php'; ?>
+    <?php include 'footer.php'; ?>
 
     <script src="js/scrolltotop.js">window.initdata = {}</script>
     <script src="js/detailBox.js"></script>

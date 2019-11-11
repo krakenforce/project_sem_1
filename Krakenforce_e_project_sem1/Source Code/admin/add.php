@@ -1,3 +1,4 @@
+<?php $title = "add page"; include_once 'header.php'; ?>
 <?php
     require_once("../includes/functions.php");
     $db = new Database();
@@ -42,27 +43,7 @@
         header("location: admin_index.php");
     endif;
 ?>
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/jquery.js"></script>
-    <title>Document</title>
-</head>
-
 <body>
-<h1 class="text-center" style="color: #0A6BD3">Cosy Aircondition Adminstrator</h1>
-<div>
-    <a href="admin_index.php" style="text-decoration: none">
-        <button class="btn btn-primary">Admin Home Page</button>
-    </a>
-</div>
 <br/>
 <div class="container" style="border: 1px black solid;">
     <h2 class="text-center">Product Infomation Detail</h2>

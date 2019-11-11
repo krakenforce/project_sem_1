@@ -20,9 +20,26 @@ if(!$session->is_signed_in()){
     <meta charset="UTF-8">
 <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
     <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title><?php echo $title; ?></title>
+    <h1 class="text-center" style="color: #0A6BD3">Cosy Aircondition Adminstrator</h1>
+
+    <div class="d-flex justify-content-center">
+        <a href="../public/pages/index.php" style="text-decoration: none" class="navbar-brand nav-item">
+            <button class="btn btn-info">Cosy AirConditioner Home Page</button>
+        </a>
+        <a href="admin_index.php" style="text-decoration: none" class="navbar-brand nav-item">
+            <button class="btn btn-primary">Admin Home Page</button>
+        </a>
+
+        <a href="logout.php" style="text-decoration: none" class="navbar-brand nav-item">
+            <button class="btn btn-primary">Log out</button>
+        </a>
+    </div>
+    <h4 class="text-center" style="color: #0A6BD3; margin: 0px"><?php echo $title; ?></h4>
+
 </head>
 <body>
 

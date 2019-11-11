@@ -1,76 +1,94 @@
+<?php $title = "index"; include_once 'header.php'; ?>
 <?php
-    require_once("../includes/functions.php");
-    require_once("../classes/pagination.class.php");
-    $db = new Database();
-    if ($_SERVER['REQUEST_METHOD'] === 'POST'):
-        $statement = "SELECT * FROM product INNER JOIN product_detail pd ON product.pro_id = pd.pro_id where concat(product.product_code,name,price,brand,type,model,color) LIKE ?";
-        $param = ["%{$_POST['search']}%"];
-        $stmt = $db->query_with_params($statement, $param);
-        $total = $stmt->rowCount();
-        $config = array(
-            'current_page' => isset($_GET['page']) ? $_GET['page'] : 1,
-            'total_record' => $total,
-            'limit' => 6,
-            'link_full' => 'admin_index.php?page={page}',
-            'link_first' => 'admin_index.php',
-            'range' => 9
-        );
-        $paging = new Pagination();
-        $paging->init($config);
-    
-    else:
-        $statement = "SELECT pro_id FROM product";
-        $stmt = $db->selectData($statement);
-        $total = $stmt->rowCount();
-        $config = array(
-            'current_page' => isset($_GET['page']) ? $_GET['page'] : 1,
-            'total_record' => $total,
-            'limit' => 6,
-            'link_full' => 'admin_index.php?page={page}',
-            'link_first' => 'admin_index.php',
-            'range' => 9
-        );
-        
-        $paging = new Pagination();
-        $paging->init($config);
-        $statement = "SELECT * FROM product " . $paging->get_limit();
-        $stmt = $db->selectData($statement);
-    endif;
-    $products = Product::find_all_products();
+
+// set current page & limit & off-set cho page:
+$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+$limit = 8; // -> so luong rows tung trang
+if ($current_page == 0 || $current_page == 1) {
+    $off_set = 0;
+} else {
+    $off_set = ($current_page * $limit) - $limit;
+}
+
+//tim so luong rows/records cua search vs khong search:
+if (isset($_GET['search'])){
+    $search_key_word = $_GET['search'];
+    $all_products = Product::find_products_by_search($search_key_word);
+    $total_record = count($all_products);
+}
+else{
+    $all_products = Product::find_all_products();
+    $total_record = count($all_products);
+}
+
+//tim` tong so luong trang/pages tu` tong~ so luong rows + limit tung` trang:
+$products = array_slice($all_products, $off_set, $limit);
+$total_pages = ceil($total_record/$limit);
+
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/jquery.js"></script>
-    <title>Adminstrator</title>
-</head>
+<script>
+    $(document).ready(function(){
+        $('#delete-btn').on("click", function () {
+            var pro_id = $('#id_of_product').val();
+            $.ajax({
+                type: "POST",
+                url: "delete.php",
+                data: {pro_id: pro_id},
+                success: function (result) {
+                    alert(result);
+                    if (result == "success") {
+                        window.location.reload();
+                    };
+                }
+            });
+        });
+        $('.delete_row').on("click", function () {
+            if(confirm("are you sure?")){
+                var pro_id = $(this).attr('id'),
+                    table_row = $(this).closest("tr");
+                console.log(pro_id);
+                $.ajax({
+                    type: "POST",
+                    url: "delete.php",
+                    data: {pro_id: pro_id},
+                    success: function(result) {
+                        alert(result);
+                        if (result == "success"){
+                            table_row.remove();
+                        }
+                    }
+                });
+            }
+
+        });
+    });
+</script>
+
 <body>
-<h1 class="text-center" style="color: #0A6BD3">Cosy Aircondition Adminstrator</h1>
-<div class="navbar navbar-dark navbar-expand-sm">
+<div class="d-flex flex-column navbar navbar-dark navbar-expand-sm">
     <div>
-        <a href="../public/pages/index.php" style="text-decoration: none" class="navbar-brand nav-item">
-            <button class="btn btn-info">Cosy AirConditioner Home Page</button>
-        </a>
-        <a href="admin_index.php" style="text-decoration: none" class="navbar-brand nav-item">
-            <button class="btn btn-primary">Admin Home Page</button>
-        </a>
-        <a href="add.php" style="text-decoration: none" class="navbar-brand nav-item">
-            <button class="btn btn-primary">Add Product</button>
-        </a>
-        <form action="#" method="post" class="form-inline nav-item">
-            <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search Product"
-                   aria-label="Search">
-            <button name="search-btn" id="search-btn" class="btn btn-outline-success my-2 my-sm-0"
-                    type="submit">Search
-            </button>
-        </form>
+
+        <div class="d-flex flex-row">
+            <div>
+                <form action="#" method="get" class="d-flex justify-content-center nav-item" style="width: 300px">
+                    <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search Product"
+                           aria-label="Search" style="width: 200px">
+                    <button name="search-btn" id="search-btn" class="btn btn-outline-success my-2 my-sm-0"
+                            type="submit">Search
+                    </button>
+                </form>
+            </div>
+            <div>
+                <input type="number" class="form-group" id="id_of_product">
+                <button id="delete-btn" class="btn btn-primary">Delete by id</button>
+            </div>
+            <div style="padding-left: 20px">
+                <a href="add.php" style="text-decoration: none">
+                    <button class="btn btn-primary">Add Product</button>
+                </a>
+            </div>
+        </div>
+
     </div>
 </div>
 <div class="container">
@@ -80,7 +98,7 @@
             <th scope="col">ID</th>
             <th scope="col">Product Code</th>
             <th scope="col">Product Name</th>
-            <th scope="col">Price</th>
+            <th scope="col">Brand</th>
             <th scope="col">Image</th>
             <th scope="col">View More</th>
             <th scope="col">Update</th>
@@ -101,23 +119,23 @@
                 <?php echo $product->product_info['name']; ?>
             </td>
             <td scope="row">
-                <?php echo $product->product_info['price']; ?>
+                <?php echo $product->product_info['brand']; ?>
             </td>
             <td scope="row">
                 <img height="100px" width="auto" src="<?php echo $product->product_info['image']; ?>" alt="">
             </td>
             <td scope="row">
-                <a href="product_detail.php?id =<?php echo $product->product_info['pro_id']; ?>">
+                <a href="product_detail.php?pro_id=<?php echo $product->product_info['pro_id']; ?>">
                     <button class="btn btn-success" id="vm-btn">View More</button>
                 </a>
             </td>
 </div>
 </td>
 <td scope="row">
-    <a href="add.php?pro_id=<?= $product->product_info['pro_id']; ?>">Update</a>
+    <a href="update.php?pro_id=<?= $product->product_info['pro_id']; ?>">Update</a>
 </td>
 <td scope="row">
-    <a href="delete.php?pro_id<?= $product->product_info['pro_id']; ?>">Delete</a>
+    <button id="<?php echo $product->product_info['pro_id']; ?>" class="btn-warning delete_row">Delete</button>
 </td>
 </tr>
 <?php
@@ -125,15 +143,33 @@
     $db->closeConn();
 ?>
 </table>
-<?php
-    if ($total > 0):
-        echo $paging->html();
-    else:
-        echo "Not found product";
-    endif;
-    
-?>
+<div class="d-flex flex-column">
+    <div class="d-flex justify-content-center">
+        <ul class="pagination">
+        <?php
+        if ( (isset($_GET['search'])) ) {
+            for ($i = 1; $i <= $total_pages; $i ++){
+                if($i == $current_page){
+                    echo "<li class=\"page-item\"><a class=\"page-link page_active\" href=\"admin_index.php?search={$_GET['search']}&page={$i}\">{$i}</a></li>";
+                }else {
+                    echo "<li class=\"page-item\"><a class=\"page-link\" href=\"admin_index.php?search={$_GET['search']}&page={$i}\">{$i}</a></li>";
+                }
 
+            };
+        } else {
+
+            for ($i = 1; $i <= $total_pages; $i ++){
+                if($i == $current_page){
+                    echo "<li class=\"page-item\"><a class=\"page-link page_active\" href=\"admin_index.php?page={$i}\">{$i}</a></li>";
+                }else {
+                    echo "<li class=\"page-item\"><a class=\"page-link\" href=\"admin_index.php?page={$i}\">{$i}</a></li>";
+                }
+
+            }
+        }
+        ?>
+        </ul>
+    </div>
 </div>
 </body>
 </html>

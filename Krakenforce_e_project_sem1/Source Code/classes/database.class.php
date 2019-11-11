@@ -36,13 +36,13 @@ class Database {
         try {
             $statement = trim($statement);
             $this->stmt = $this->pdo->prepare($statement);
-            $result = $this->stmt->execute($param);
+            $this->stmt->execute($param);
             if (substr(strtolower($statement), 0, 6) === "select") {
                 // trả result-set(rows data) cho lệnh SELECT
                 return $this->stmt;
             }else {
                 //nếu không phải là lệnh select thì return true(1) hoặc false(0):
-                return $result;
+                return $result = $this->stmt->rowCount();
             }
         }catch(PDOException $e) {
             die("query failed: " . $e->getMessage());

@@ -31,7 +31,6 @@ class Database {
             self::showMessage($e->getMessage());
         }
     }
-
     // gom update, delete, insert (với parameters) thành một function
     public function query_with_params($statement, $param){
         try {

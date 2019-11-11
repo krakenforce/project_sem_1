@@ -93,8 +93,8 @@ class Pagination
             $p = '<ul class = "pagination">';
             if ($this->_config['current_page'] > 1)
             {
-                $p .= '<li><a href="'.$this->__link('1').'">First</a></li>';
-                $p .= '<li><a href="'.$this->__link($this->_config['current_page']-1).'">Prev</a></li>';
+                $p .= '<li><a href="'.$this->__link('1').'"> First </a></li>';
+                $p .= '<li><a href="'.$this->__link($this->_config['current_page']-1).'"> Prev </a></li>';
             }
             for ($i = $this->_config['min']; $i <= $this->_config['max']; $i++)
             {
@@ -107,8 +107,8 @@ class Pagination
             }
             if ($this->_config['current_page'] < $this->_config['total_page'])
             {
-                $p .= '<li><a href="'.$this->__link($this->_config['current_page'] + 1).'">Next</a></li>';
-                $p .= '<li><a href="'.$this->__link($this->_config['total_page']).'">Last</a></li>';
+                $p .= '<li><a href="'.$this->__link($this->_config['current_page'] + 1).'"> Next </a></li>';
+                $p .= '<li><a href="'.$this->__link($this->_config['total_page']).'"> Last </a></li>';
             }
 
             $p .= '</ul>';

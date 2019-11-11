@@ -33,8 +33,10 @@ class Product {
 
     public static function find_product_by_id($id)
     {
-        $result_set = self::findThis_query("SELECT * FROM product INNER JOIN product_detail ON product.pro_id = product_detail.pro_id WHERE product.pro_id= $id LIMIT 1;");
-        return !empty($result_set) ? array_shift($result_set) : false ;
+        $brand = strtolower(trim($id));
+        $result_set = self::findThis_query("SELECT * FROM product INNER JOIN product_detail ON product.pro_id = product_detail.pro_id WHERE product.pro_id= '$id'");
+        //return !empty($result_set) ? array_shift($result_set) : false ;
+        return $result_set;
     }
 
     // dùng "select *" để pass vào function này:

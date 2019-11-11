@@ -39,8 +39,9 @@
         ];
         $db->query_with_params($statement, $param);
         $db->query_with_params($statement2, $param2);
-        //header("location: admin_index.php");
+        header("location: admin_index.php");
     endif;
+    $products = Product::find_all_products();
 ?>
 <!doctype html>
 <html lang="en">
@@ -64,73 +65,74 @@
     </a>
 </div>
 <br/>
+<?php foreach ($products as $product): ?>
 <div class="container" style="border: 1px black solid;">
     <h2 class="text-center">Product Infomation Detail</h2>
     <form action="" method="POST" enctype="multipart/form-data">
         <div class="form-row">
             <div class="form-group col-md-2">
                 <label for="">Product Code: </label>
-                <input type="text" name="product_code" class="form-control" value="<?= $product_code ?>">
+                <input type="text" name="product_code" class="form-control" value="<?php echo $product->product_info['product_code']; ?>">
             </div>
             <div class="form-group col-md-2">
                 <label for="">Brand: </label>
-                <input type="text" name="brand" id="" class="form-control" value="<?= $brand ?>">
+                <input type="text" name="brand" id="" class="form-control" value="<?php echo $product->product_info['brand']; ?>">
             </div>
             <div class="form-group col-md-3">
                 <label for="">Product Name: </label>
-                <input type="text" name="name" id="" class="form-control" value="<?= $name ?>">
+                <input type="text" name="name" id="" class="form-control" value="<?php echo $product->product_info['name']; ?>">
             </div>
             <div class="form-group col-md-3">
                 <label for="">Product Model: </label>
-                <input type="text" name="model" id="" class="form-control" value="<?= $model ?>">
+                <input type="text" name="model" id="" class="form-control" value="<?php echo $product->product_info['model']; ?>">
             </div>
             <div class="form-group col-md-2">
                 <label for="">Color: </label>
-                <input type="text" name="color" id="" class="form-control" value="<?= $color ?>">
+                <input type="text" name="color" id="" class="form-control" value="<?php echo $product->product_info['color']; ?>">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="">Ton: </label>
-                <input type="number" step="0.01" name="ton" id="" class="form-control" value="<?= $ton ?>">
+                <input type="number" step="0.01" name="ton" id="" class="form-control" value="<?php echo $product->product_info['ton']; ?>">
             </div>
             <div class="form-group col-md-4">
                 <label for="">Cooling capacity: </label>
-                <input type="number" name="cooling_cap" id="" class="form-control" value="<?= $cooling_cap ?>">
+                <input type="number" name="cooling_cap" id="" class="form-control" value="<?php echo $product->product_info['cooling_cap']; ?>">
             </div>
             <div class="form-group col-md-4">
                 <label for="">Heating capacity: </label>
-                <input type="number" name="heating_cap" id="" class="form-control" value="<?= $heating_cap ?>">
+                <input type="number" name="heating_cap" id="" class="form-control" value="<?php echo $product->product_info['heating_cap']; ?>">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="">Power Input: </label>
-                <input type="number" name="pw_input" id="" class="form-control" value="<?= $pw_input ?>">
+                <input type="number" name="pw_input" id="" class="form-control" value="<?php echo $product->product_info['pw_input']; ?>">
             </div>
             <div class="form-group col-md-6">
                 <label for="">EER: </label>
-                <input type="text" name="eer" id="" class="form-control" value="<?= $eer ?>">
+                <input type="text" name="eer" id="" class="form-control" value="<?php echo $product->product_info['eer']; ?>">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="">Feature 1: </label>
-                <input type="text" name="fea_01" id="" class="form-control" value="<?= $fea_01 ?>">
+                <input type="text" name="fea_01" id="" class="form-control" value="<?php echo $product->product_info['fea_01']; ?>">
             </div>
             <div class="form-group col-md-4">
                 <label for="">Feature 2: </label>
-                <input type="text" name="fea_02" id="" class="form-control" value="<?= $fea_02 ?>">
+                <input type="text" name="fea_02" id="" class="form-control" value="<?php echo $product->product_info['fea_02']; ?>">
             </div>
             <div class="form-group col-md-4">
                 <label for="">Feature 3: </label>
-                <input type="text" name="fea_03" id="" class="form-control" value="<?= $fea_03 ?>">
+                <input type="text" name="fea_03" id="" class="form-control" value="<?php echo $product->product_info['fea_03']; ?>">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="">Price: </label>
-                <input type="number" name="price" id="" class="form-control" placeholder="Enter price (number)">
+                <input type="number" name="price" id="" class="form-control" placeholder="Enter price (number)" value="<?php echo $product->product_info['price']; ?>">
             </div>
 
             <div class="form-group col-md-9">
@@ -146,7 +148,7 @@
 
         <div class="form-group">
             <input type="hidden" name="defaultPhoto" value="photos/default.png">
-            <img src="photos/<?= $image ?>" id="output" alt="uploaded-image" height="100px">
+            <img src="<?php echo $product->product_info['price']; ?>" id="output" alt="uploaded-image" height="100px">
             <strong><label for="image">Photo</label></strong>
             <input class="form-control-file" type="file" name="photo" onchange="loadFile(event)">
             <script>
@@ -170,6 +172,7 @@
     <br/><br/>
 
 </div>
+<?php endforeach; ?>
 </div>
 </body>
 

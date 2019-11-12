@@ -60,7 +60,7 @@
                 <div class="product-Box_display_pD1">
                     <div class="display-container_pD1" id="product_Slide-container_pD1">
                         <?php foreach ($products as $product): ?>
-                            <div class="product-Box_pD1">-->
+                            <div class="product-Box_pD1">
                                 <div class="product-Box_image_pD1">
                                     <img src="../../../admin/<?php echo $product->product_info['image']; ?>" alt="" draggable="false">
                                 </div>

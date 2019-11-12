@@ -152,7 +152,7 @@ $this_product = Product::find_product_by_id($pro_id);
         </div>
 
         <button class="btn btn-primary" type="submit" name="submit" >UPDATE</button>
-        <a href="#"> <input class="btn btn-danger" value="Cancel"> </a>
+        <a href="admin_index.php"> <input class="btn btn-danger" value="Cancel"> </a>
     </form>
     <br/><br/>
 

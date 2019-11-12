@@ -1,4 +1,4 @@
-    var scrolltotop = {
+var scrolltotop = {
     setting: {
         startline: 100,
         scrollto: 0,
@@ -79,29 +79,65 @@
     }
 };
 scrolltotop.init();
+function Heading_bt1() {
+    document.getElementById("pD1").style.height = "450px";
+    document.getElementById("pD1").style.transition = "450ms ease"
+}
 function next_bt1() {
-    document.getElementById("product_Slide-container_pD1").style.marginLeft = "-616px";
+    document.getElementById("product_Slide-container_pD1").style.marginLeft = "-643px";
     document.getElementById("product_Slide-container_pD1").style.transition = "450ms ease"
 }
 function back_bt1() {
-    document.getElementById("product_Slide-container_pD1").style.marginLeft = "0px";
-    document.getElementById("product_Slide-container_pD1").style.transition = "450ms ease"
+    document.getElementById("product_Slide-container_pD1").style.marginLeft = "-8px";
+    document.getElementById("product_Slide-container_pD1").style.transition = "460ms ease"
+}
+function Heading_bt2() {
+    document.getElementById("pD2").style.height = "450px";
+    document.getElementById("pD2").style.transition = "450ms ease"
 }
 function next_bt2() {
-    document.getElementById("product_Slide-container_pD2").style.marginLeft = "-616px";
+    document.getElementById("product_Slide-container_pD2").style.marginLeft = "-643px";
     document.getElementById("product_Slide-container_pD2").style.transition = "450ms ease"
 }
 function back_bt2() {
-    document.getElementById("product_Slide-container_pD2").style.marginLeft = "0px";
+    document.getElementById("product_Slide-container_pD2").style.marginLeft = "-8px";
     document.getElementById("product_Slide-container_pD2").style.transition = "460ms ease"
 }
+function Heading_bt3() {
+    document.getElementById("pD3").style.height = "450px";
+    document.getElementById("pD3").style.transition = "450ms ease"
+}
 function next_bt3() {
-    document.getElementById("product_Slide-container_pD3").style.marginLeft = "-616px";
+    document.getElementById("product_Slide-container_pD3").style.marginLeft = "-643px";
     document.getElementById("product_Slide-container_pD3").style.transition = "450ms ease"
 }
 function back_bt3() {
-    document.getElementById("product_Slide-container_pD3").style.marginLeft = "0px";
-    document.getElementById("product_Slide-container_pD3").style.transition = "450ms ease"
+    document.getElementById("product_Slide-container_pD3").style.marginLeft = "-8px";
+    document.getElementById("product_Slide-container_pD3").style.transition = "460ms ease"
+}
+function Heading_bt4() {
+    document.getElementById("pD4").style.height = "450px";
+    document.getElementById("pD4").style.transition = "450ms ease"
+}
+function next_bt4() {
+    document.getElementById("product_Slide-container_pD4").style.marginLeft = "-643px";
+    document.getElementById("product_Slide-container_pD4").style.transition = "450ms ease"
+}
+function back_bt4() {
+    document.getElementById("product_Slide-container_pD4").style.marginLeft = "-8px";
+    document.getElementById("product_Slide-container_pD4").style.transition = "460ms ease"
+}
+function Heading_bt5() {
+    document.getElementById("pD5").style.height = "450px";
+    document.getElementById("pD5").style.transition = "450ms ease"
+}
+function next_bt5() {
+    document.getElementById("product_Slide-container_pD5").style.marginLeft = "-643px";
+    document.getElementById("product_Slide-container_pD5").style.transition = "450ms ease"
+}
+function back_bt5() {
+    document.getElementById("product_Slide-container_pD5").style.marginLeft = "-8px";
+    document.getElementById("product_Slide-container_pD5").style.transition = "460ms ease"
 }
 var link = document.getElementById("pdownloadFile");
 var pImage = document.getElementById("pImage");

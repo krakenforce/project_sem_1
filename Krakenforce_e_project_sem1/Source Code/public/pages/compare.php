@@ -1,3 +1,8 @@
+<?php
+    require_once '../../includes/functions.php';
+    $db = new Database();
+    $products = Product::find_all_products();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -22,22 +27,20 @@
                     <select id="option1" onchange="Data1()">
                         <option>---------------Select Product---------------</option>
                         <option disabled></option>
-                        <option disabled>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mitsubishi</option>
-                        <option disabled>-------------------------------------------------</option>
-                        <option disabled>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------------Split------------</option>
-                        <option>1 Ton Inverter Series HJ35VA</option>
-                        <option>1.5 Ton Inverter Series HJ50VA</option>
+                        <?php foreach ($products as $product): ?>
+                            <option><?php echo $product->product_info['name']; ?></option>
+                        <?php endforeach;
+                            $db->closeConn(); ?>
                     </select>
                 </label>
                 <label>
                     <select id="option2" onchange="Data2()">
                         <option>---------------Select Product---------------</option>
                         <option disabled></option>
-                        <option disabled>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mitsubishi</option>
-                        <option disabled>-------------------------------------------------</option>
-                        <option disabled>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------------Split------------</option>
-                        <option>1 Ton Inverter Series HJ35VA</option>
-                        <option>1.5 Ton Inverter Series HJ50VA</option>
+                        <?php foreach ($products as $product): ?>
+                            <option><?php echo $product->product_info['name']; ?></option>
+                        <?php endforeach;
+                            $db->closeConn(); ?>
                     </select>
                 </label>
             </div>

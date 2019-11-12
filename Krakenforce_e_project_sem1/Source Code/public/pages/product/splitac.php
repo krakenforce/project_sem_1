@@ -13,7 +13,7 @@
     <script src="../../../js/jquery.js"></script>
 
 </head>
-<body>
+<body style="display: flex; flex-direction: column">
 <main onmouseup="footerOut()">
     <?php require 'header.php' ?>
     <section id="sec_02">
@@ -121,11 +121,12 @@
     <!--            </div>-->
     <!--        </div>-->
     <!--    </section>-->
-    <?php require 'footer.php' ?>
+    
     <script src="../brand/js/detailBox.js"></script>
     <script src="js/scrolltotop.js"></script>
     
 </main>
 
 </body>
+<?php require 'footer.php' ?>
 </html>

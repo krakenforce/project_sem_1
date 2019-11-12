@@ -1,3 +1,8 @@
+<?php
+    require_once '../../../includes/functions.php';
+    $db = new Database();
+    $products = Product::find_products_by_type('Cabinet AC');
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,7 +12,7 @@
     <link rel="stylesheet" href="css/cabinet.css">
     <script src="../../../js/jquery.js"></script>
 </head>
-<body>
+<body style="display: flex; flex-direction: column">
 <main onmouseup="footerOut()">
     <?php require 'header.php' ?>
     <section id="sec_02">
@@ -32,168 +37,29 @@
     <section id="sec_03">
         <div id="box_division">
             <ul>
-                <li>
-                    <div class="product-Box_pD1" onclick="Mitsubishi_Cabinet_01()">
-                        <a>
-                            <div class="product-Box_image_pD1">
-                                <img src="../images/brands/mitsubishi/Cabinet/010.png" alt="" draggable="false">
-                            </div>
-                            <div class="product-Box_detail_pD1">
-                                <h2></h2>
-                                <h3></h3>
-                            </div>
-                            <div class="product-Box_hover_pD1">
-                                <img src="../images/brands/pbox_search-icon.png" alt="" draggable="false">
-                            </div>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-Box_pD1" onclick="Mitsubishi_Cabinet_02()">
-                        <a>
-                            <div class="product-Box_image_pD1">
-                                <img src="../images/brands/mitsubishi/Cabinet/05.png" alt="" draggable="false">
-                            </div>
-                            <div class="product-Box_detail_pD1"></div>
-                            <div class="product-Box_hover_pD1"><img src="../images/brands/pbox_search-icon.png" alt=""
-                                                                    draggable="false"></div>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-Box_pD1" onclick="Mitsubishi_Cabinet_03()">
-                        <a>
-                            <div class="product-Box_image_pD1"></div>
-                            <div class="product-Box_detail_pD1"></div>
-                            <div class="product-Box_hover_pD1"><img src="../images/brands/pbox_search-icon.png" alt=""
-                                                                    draggable="false"></div>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-Box_pD2" onclick="Carrier_Cabinet_01()">
-                        <a>
-                            <div class="product-Box_image_pD2"></div>
-                            <div class="product-Box_detail_pD2"></div>
-                            <div class="product-Box_hover_pD2"><img src="../images/brands/pbox_search-icon.png" alt=""
-                                                                    draggable="false"></div>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-Box_pD2" onclick="Carrier_Cabinet_02()">
-                        <a>
-                            <div class="product-Box_image_pD2"></div>
-                            <div class="product-Box_detail_pD2"></div>
-                            <div class="product-Box_hover_pD2"><img src="../images/brands/pbox_search-icon.png" alt=""
-                                                                    draggable="false"></div>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-Box_pD2" onclick="Carrier_Cabinet_03()">
-                        <a>
-                            <div class="product-Box_image_pD2"></div>
-                            <div class="product-Box_detail_pD2"></div>
-                            <div class="product-Box_hover_pD2"><img src="../images/brands/pbox_search-icon.png" alt=""
-                                                                    draggable="false"></div>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-Box_pD3" onclick="Orient_Cabinet_01()">
-                        <a>
-                            <div class="product-Box_image_pD3"></div>
-                            <div class="product-Box_detail_pD3"></div>
-                            <div class="product-Box_hover_pD3"><img src="../images/brands/pbox_search-icon.png" alt=""
-                                                                    draggable="false"></div>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-Box_pD3" onclick="Orient_Cabinet_02()">
-                        <a>
-                            <div class="product-Box_image_pD3"></div>
-                            <div class="product-Box_detail_pD3"></div>
-                            <div class="product-Box_hover_pD3"><img src="../images/brands/pbox_search-icon.png" alt=""
-                                                                    draggable="false"></div>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-Box_pD3" onclick="Orient_Cabinet_03()">
-                        <a>
-                            <div class="product-Box_image_pD3"></div>
-                            <div class="product-Box_detail_pD3"></div>
-                            <div class="product-Box_hover_pD3"><img src="../images/brands/pbox_search-icon.png" alt=""
-                                                                    draggable="false"></div>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-Box_pD4" onclick="Sanyo_Cabinet_01()">
-                        <a>
-                            <div class="product-Box_image_pD4"></div>
-                            <div class="product-Box_detail_pD4"></div>
-                            <div class="product-Box_hover_pD4"><img src="../images/brands/pbox_search-icon.png" alt=""
-                                                                    draggable="false"></div>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-Box_pD4" onclick="Sanyo_Cabinet_02()">
-                        <a>
-                            <div class="product-Box_image_pD4"></div>
-                            <div class="product-Box_detail_pD4"></div>
-                            <div class="product-Box_hover_pD4"><img src="../images/brands/pbox_search-icon.png" alt=""
-                                                                    draggable="false"></div>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-Box_pD4" onclick="Sanyo_Cabinet_03()">
-                        <a>
-                            <div class="product-Box_image_pD4"></div>
-                            <div class="product-Box_detail_pD4"></div>
-                            <div class="product-Box_hover_pD4"><img src="../images/brands/pbox_search-icon.png" alt=""
-                                                                    draggable="false"></div>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-Box_pD5" onclick="LG_Cabinet_01()">
-                        <a>
-                            <div class="product-Box_image_pD5"></div>
-                            <div class="product-Box_detail_pD5"></div>
-                            <div class="product-Box_hover_pD5"><img src="../images/brands/pbox_search-icon.png" alt=""
-                                                                    draggable="false"></div>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-Box_pD5" onclick="LG_Cabinet_02()">
-                        <a>
-                            <div class="product-Box_image_pD5"></div>
-                            <div class="product-Box_detail_pD5"></div>
-                            <div class="product-Box_hover_pD5"><img src="../images/brands/pbox_search-icon.png" alt=""
-                                                                    draggable="false"></div>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-Box_pD5" onclick="LG_Cabinet_03()">
-                        <a>
-                            <div class="product-Box_image_pD5"></div>
-                            <div class="product-Box_detail_pD5"></div>
-                            <div class="product-Box_hover_pD5"><img src="../images/brands/pbox_search-icon.png" alt=""
-                                                                    draggable="false"></div>
-                        </a>
-                    </div>
-                </li>
+                <?php foreach ($products as $product): ?>
+                    <li>
+                        <div class="product-Box_pD1" onclick="Mitsubishi_Split_01()">
+                            <a>
+                                <div class="product-Box_image_pD1">
+                                    <img src="../../../admin/<?php echo $product->product_info['image']; ?>" alt=""
+                                         draggable="false">
+                                </div>
+                                <div class="product-Box_detail_pD1">
+                                    <h2><?php echo $product->product_info['brand']; ?></h2>
+                                    <h3><?php echo $product->product_info['name']; ?></h3>
+                                </div>
+                                <div class="product-Box_hover_pD1">
+                                    <img src="../images/brands/pbox_search-icon.png" alt="" draggable="false">
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                <?php endforeach;
+                    $db->closeConn(); ?>
             </ul>
         </div>
     </section>
-    <?php require 'footer.php' ?>
     <section id="sec_pDetail">
         <div id="pDetail_left_box">
             <img src="../images/brands/icon-proddetails.png" alt="" draggable="false"/>
@@ -258,4 +124,5 @@
     <script src="js/scrolltotop.js"></script>
 </main>
 </body>
+<?php require 'footer.php' ?>
 </html>

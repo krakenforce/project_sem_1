@@ -39,7 +39,7 @@
             <ul>
                 <?php foreach ($products as $product): ?>
                     <li>
-                        <div class="product-Box_pD1" onclick="Mitsubishi_Split_01()">
+                        <div class="product-Box_pD1 btn_details">
                             <a>
                                 <div class="product-Box_image_pD1">
                                     <img src="../../../admin/<?php echo $product->product_info['image']; ?>" alt=""
@@ -53,6 +53,16 @@
                                     <img src="../images/brands/pbox_search-icon.png" alt="" draggable="false">
                                 </div>
                             </a>
+                            <input type="hidden" class="product_download" value="../../../admin/<?php echo $product->product_info['download']; ?>">
+                            <input type="hidden" class="product_image" value="../../../admin/<?php echo $product->product_info['image']; ?>">
+                            <input type="hidden" class="product_price" value="<?php echo $product->product_info['price']; ?>">
+                            <input type="hidden" class="product_name" value="<?php echo $product->product_info['name']; ?>">
+                            <input type="hidden" class="product_feature1" value="<?php echo $product->product_info['fea_01']; ?>">
+                            <input type="hidden" class="product_feature2" value="<?php echo $product->product_info['fea_02']; ?>">
+                            <input type="hidden" class="product_feature3" value="<?php echo $product->product_info['fea_03']; ?>">
+                            <input type="hidden" class="product_specs1" value="<?php echo $product->product_info['cooling_cap']; ?>">
+                            <input type="hidden" class="product_specs2" value="<?php echo $product->product_info['pw_input']; ?>">
+                            <input type="hidden" class="product_specs3" value="<?php echo $product->product_info['eer']; ?>">
                         </div>
                     </li>
                 <?php endforeach;
@@ -122,6 +132,7 @@
     </section>
     <script src="../brand/Product_Detail%20Box.php"></script>
     <script src="js/scrolltotop.js"></script>
+    <script src="js/my.js"></script>
 </main>
 </body>
 <?php require 'footer.php' ?>

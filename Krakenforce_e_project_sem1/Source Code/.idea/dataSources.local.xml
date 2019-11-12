@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="ac_sell@localhost" uuid="b53a41ba-262b-42ee-bd2f-b42720180a23">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>krakenforce</user-name>
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>

@@ -25,7 +25,7 @@
 <section id="sec_05">
     <footer>
         <div class="footer_content">
-            <span>Kraken Force</span> © 2019
+            <span>COSY Air Conditioners</span> © 2016
         </div>
         <div class="footer_nav">
             <a href="../index.php">Home</a>

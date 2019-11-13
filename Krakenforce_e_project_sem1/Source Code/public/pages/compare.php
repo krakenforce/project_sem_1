@@ -2,6 +2,7 @@
     require_once '../../includes/functions.php';
     $db = new Database();
     $products = Product::find_all_products();
+
     if(isset($_GET['pro_id'])){
         $id = $_GET['pro_id'];
         $chosen_product = Product::find_product_by_id($id);
@@ -11,7 +12,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Compare</title>
+    <title>Document</title>
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="stylesheet" href="../../css/compare.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -30,7 +31,7 @@
             <div class="compare-dropmenu_bar">
                 <label>
                     <select id="option1">
-                        <option>---------------Select Product---------------</option>
+                        <option><?php echo isset($_GET['pro_id'])? $chosen_product->product_info['name'] : "---------------Select Product---------------"; ?></option>
                         <option disabled></option>
                         <?php foreach ($products as $product): ?>
                             <option value="<?php echo $product->product_info['pro_id']; ?>"><?php echo $product->product_info['name']; ?></option>
@@ -233,8 +234,7 @@
         </div>
     </section>
     <?php require 'footer.php' ?>
-    <script src="brand/js/my.js"></script>
-    <script src="brand/js/compare.js"></script>
+    <script src="../../js/my.js"></script>
 </main>
 </body>
 </html>

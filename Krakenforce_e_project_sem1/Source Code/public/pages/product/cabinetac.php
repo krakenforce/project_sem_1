@@ -7,15 +7,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cabinet Air Conditioner</title>
+    <title>Document</title>
     <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="css/cabinet.css">
     <script src="../../../js/jquery.js"></script>
 </head>
 <body style="display: flex; flex-direction: column">
-<?php require 'header.php' ?>
 <main onmouseup="footerOut()">
-    
+    <?php require 'header.php' ?>
     <section id="sec_02">
         <div id="slider">
             <div id="wowslider-container1">
@@ -32,7 +31,7 @@
             </div>
         </div>
         <div class="page_heading-text">
-            <h1>Cabinet Air Conditioners</h1>
+            <h1>Split Air Conditioners</h1>
         </div>
     </section>
     <section id="sec_03">
@@ -54,6 +53,7 @@
                                     <img src="../images/brands/pbox_search-icon.png" alt="" draggable="false">
                                 </div>
                             </a>
+                            <input type="hidden" class="product_id" value="<?php echo $product->product_info['pro_id']; ?>">
                             <input type="hidden" class="product_download" value="../../../admin/<?php echo $product->product_info['download']; ?>">
                             <input type="hidden" class="product_image" value="../../../admin/<?php echo $product->product_info['image']; ?>">
                             <input type="hidden" class="product_price" value="<?php echo $product->product_info['price']; ?>">
@@ -61,21 +61,19 @@
                             <input type="hidden" class="product_feature1" value="<?php echo $product->product_info['fea_01']; ?>">
                             <input type="hidden" class="product_feature2" value="<?php echo $product->product_info['fea_02']; ?>">
                             <input type="hidden" class="product_feature3" value="<?php echo $product->product_info['fea_03']; ?>">
-                            <input type="hidden" class="product_specs1" value="<?php echo 'Cooling (Btu/H): '.$product->product_info['cooling_cap']; ?>">
-                            <input type="hidden" class="product_specs2" value="<?php echo 'Power Input (W): '.$product->product_info['pw_input']; ?>">
-                            <input type="hidden" class="product_specs3" value="<?php echo 'EER: '.$product->product_info['eer']; ?>">
+                            <input type="hidden" class="product_specs1" value="<?php echo $product->product_info['cooling_cap']; ?>">
+                            <input type="hidden" class="product_specs2" value="<?php echo $product->product_info['pw_input']; ?>">
+                            <input type="hidden" class="product_specs3" value="<?php echo $product->product_info['eer']; ?>">
                         </div>
                     </li>
                 <?php endforeach;
                     $db->closeConn(); ?>
             </ul>
         </div>
-    </section>
-    <?php include '../brand/Product_Detail Box.php'?>
-    <script src="../brand/js/detailBox.js"></script>
+    <?php include '../../../includes/Product_Detail Box.php'; ?>
     <script src="js/scrolltotop.js"></script>
-    <script src="js/my.js"></script>
+    <script src="../../../js/my.js"></script>
 </main>
 </body>
-<?php require 'footer.php' ?>
+<?php require 'footer.php'; ?>
 </html>

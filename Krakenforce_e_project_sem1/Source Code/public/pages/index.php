@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome to Cosy Air Conditioner!!</title>
+    <title>Home Page</title>
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="stylesheet" href="../../css/style.css">
     <script src="../../js/jquery.js"></script>

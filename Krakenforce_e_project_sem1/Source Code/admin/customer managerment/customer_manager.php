@@ -32,21 +32,6 @@
 ?>
 <script>
     $(document).ready(function () {
-        $('#delete-btn').on("click", function () {
-            var customer_id = $('#id_of_customer').val();
-            $.ajax({
-                type: "POST",
-                url: "delete_customer.php",
-                data: {customer_id: customer_id},
-                success: function (result) {
-                    alert(result);
-                    if (result == "success") {
-                        window.location.reload();
-                    }
-                    ;
-                }
-            });
-        });
         $('.delete_row').on("click", function () {
             if (confirm("are you sure?")) {
                 var customer_id = $(this).attr('id'),
@@ -64,7 +49,6 @@
                     }
                 });
             }
-
         });
     });
 </script>
@@ -187,9 +171,7 @@
                                         <?php echo $customer->customer_info['contact_type']; ?>
                                     </td>
                                     <td scope="row">
-                                        <a href="delete_customer.php?customer_id=<?php echo $customer->customer_info['customer_id']; ?>"><button
-                                                           class="btn btn-danger delete_row">Delete
-                                            </button></a>
+                                        <button id="<?php echo $customer->customer_info['customer_id'];?>" class="btn btn-danger delete_row">Delete</button>
                                     </td>
                                 </tr>
                             <?php endforeach;
@@ -268,16 +250,12 @@
     </div>
 </footer>
 <!-- end of footer -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
         integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
-
 </body>
 
 </html>

@@ -1,19 +1,19 @@
 <?php
-    require_once '../../classes/customer.class.php';
-    require_once '../../includes/functions.php';
-    $db = new Database();
-    if ($_SERVER['REQUEST_METHOD'] === 'POST'):
-        $stmt = "INSERT INTO customer(customer_name,email,phone,contact_type) VALUES (?,?,?,?)";
-        $param = [
+include '../../includes/functions.php';
+$conn = new Database();
+$result = 0;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $sql = "INSERT INTO customer(customer_name,email,phone,contact_type) VALUES (?,?,?,?);";
+    $param = [
             $_POST['customer_name'],
             $_POST['email'],
             $_POST['phone'],
             $_POST['contact_type']
         ];
-        $db->query_with_params($stmt,$param);
-        header("location: contact.php");
-    endif;
-?>
+    $result = $conn->query_with_params($sql, $param);
+}
+
+//?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -26,7 +26,7 @@
 </head>
 <body>
 <main onmouseup="footerOut()">
-    <?php require 'header.php' ?>
+    <?php require 'header.php'; ?>
     <section id="sec_02">
         <div id="contact_main-container">
             <div id="c-left_container">
@@ -50,7 +50,7 @@
                 </div>
             </div>
             <div id="c-right_container">
-                <form onsubmit="Message();" method="post" enctype="multipart/form-data">
+                <form onsubmit="Message();" method="POST" enctype="multipart/form-data">
                     <div>
                         <h2>Send us a note:</h2>
                         <h3>You can reach us using any of the numbers on this page or you can fill out the short form
@@ -88,8 +88,12 @@
             </div>
         </div>
     </section>
-    <?php require 'footer.php' ?>
-
+    <?php require 'footer.php'; ?>
+    <?php
+    if($result > 0){
+        Database::showMessage("Thank you for contacting Cosy Air Conditioner");
+    }
+    ?>
 </main>
 </body>
 </html>

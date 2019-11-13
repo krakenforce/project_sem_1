@@ -9,7 +9,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Orient</title>
+    <title>Document</title>
     <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
     <script src="../../../js/jquery.js"></script>
@@ -72,6 +72,7 @@
                                 </div>
                                 <a>
                                     <div class="product-Box_hover_pD1 btn_details">
+                                        <input type="hidden" class="product_id" value="<?php echo $product->product_info['pro_id']; ?>">
                                         <input type="hidden" class="product_download" value="../../../admin/<?php echo $product->product_info['download']; ?>">
                                         <input type="hidden" class="product_image" value="../../../admin/<?php echo $product->product_info['image']; ?>">
                                         <input type="hidden" class="product_price" value="<?php echo $product->product_info['price']; ?>">
@@ -79,9 +80,9 @@
                                         <input type="hidden" class="product_feature1" value="<?php echo $product->product_info['fea_01']; ?>">
                                         <input type="hidden" class="product_feature2" value="<?php echo $product->product_info['fea_02']; ?>">
                                         <input type="hidden" class="product_feature3" value="<?php echo $product->product_info['fea_03']; ?>">
-                                        <input type="hidden" class="product_specs1" value="<?php echo 'Cooling (Btu/H): '. $product->product_info['cooling_cap']; ?>">
-                                        <input type="hidden" class="product_specs2" value="<?php echo 'Power Input (W): '. $product->product_info['pw_input']; ?>">
-                                        <input type="hidden" class="product_specs3" value="<?php echo 'EER: '.$product->product_info['eer']; ?>">
+                                        <input type="hidden" class="product_specs1" value="<?php echo $product->product_info['cooling_cap']; ?>">
+                                        <input type="hidden" class="product_specs2" value="<?php echo $product->product_info['pw_input']; ?>">
+                                        <input type="hidden" class="product_specs3" value="<?php echo $product->product_info['eer']; ?>">
                                         <img src="../images/brands/pbox_search-icon.png" alt="" draggable="false">
                                     </div>
                                 </a>
@@ -117,6 +118,7 @@
                                 </div>
                                 <a>
                                     <div class="product-Box_hover_pD2 btn_details">
+                                        <input type="hidden" class="product_id" value="<?php echo $product2->product_info['pro_id']; ?>">
                                         <input type="hidden" class="product_download" value="../../../admin/<?php echo $product2->product_info['download']; ?>">
                                         <input type="hidden" class="product_image" value="../../../admin/<?php echo $product2->product_info['image']; ?>">
                                         <input type="hidden" class="product_price" value="<?php echo $product2->product_info['price']; ?>">
@@ -124,9 +126,9 @@
                                         <input type="hidden" class="product_feature1" value="<?php echo $product2->product_info['fea_01']; ?>">
                                         <input type="hidden" class="product_feature2" value="<?php echo $product2->product_info['fea_02']; ?>">
                                         <input type="hidden" class="product_feature3" value="<?php echo $product2->product_info['fea_03']; ?>">
-                                        <input type="hidden" class="product_specs1" value="<?php echo 'Cooling (Btu/H): '. $product2->product_info['cooling_cap']; ?>">
-                                        <input type="hidden" class="product_specs2" value="<?php echo 'Power Input (W): '.$product2->product_info['pw_input']; ?>">
-                                        <input type="hidden" class="product_specs3" value="<?php echo 'EER: '.$product2->product_info['eer']; ?>">
+                                        <input type="hidden" class="product_specs1" value="<?php echo $product2->product_info['cooling_cap']; ?>">
+                                        <input type="hidden" class="product_specs2" value="<?php echo $product2->product_info['pw_input']; ?>">
+                                        <input type="hidden" class="product_specs3" value="<?php echo $product2->product_info['eer']; ?>">
                                         <img src="../images/brands/pbox_search-icon.png" alt="" draggable="false">
                                     </div>
                                 </a>
@@ -161,6 +163,7 @@
                                 </div>
                                 <a>
                                     <div class="product-Box_hover_pD3 btn_details">
+                                        <input type="hidden" class="product_id" value="<?php echo $product3->product_info['pro_id']; ?>">
                                         <input type="hidden" class="product_download" value="../../../admin/<?php echo $product3->product_info['download']; ?>">
                                         <input type="hidden" class="product_image" value="../../../admin/<?php echo $product3->product_info['image']; ?>">
                                         <input type="hidden" class="product_price" value="<?php echo $product3->product_info['price']; ?>">
@@ -168,9 +171,9 @@
                                         <input type="hidden" class="product_feature1" value="<?php echo $product3->product_info['fea_01']; ?>">
                                         <input type="hidden" class="product_feature2" value="<?php echo $product3->product_info['fea_02']; ?>">
                                         <input type="hidden" class="product_feature3" value="<?php echo $product3->product_info['fea_03']; ?>">
-                                        <input type="hidden" class="product_specs1" value="<?php echo 'Cooling (Btu/H): '.$product3->product_info['cooling_cap']; ?>">
-                                        <input type="hidden" class="product_specs2" value="<?php echo 'Power Input (W): '.$product3->product_info['pw_input']; ?>">
-                                        <input type="hidden" class="product_specs3" value="<?php echo 'EER: '.$product3->product_info['eer']; ?>">
+                                        <input type="hidden" class="product_specs1" value="<?php echo $product3->product_info['cooling_cap']; ?>">
+                                        <input type="hidden" class="product_specs2" value="<?php echo $product3->product_info['pw_input']; ?>">
+                                        <input type="hidden" class="product_specs3" value="<?php echo $product3->product_info['eer']; ?>">
                                         <img src="../images/brands/pbox_search-icon.png" alt="" draggable="false">
                                     </div>
                                 </a>
@@ -182,10 +185,10 @@
         </div>
     </section>
     <?php $db->closeConn(); ?>
-    <?php include './Product_Detail Box.php' ?>
-    <?php require 'footer.php' ?>
+    <?php include '../../../includes/Product_Detail Box.php'; ?>
+    <?php require 'footer.php'; ?>
     <script src="js/scrolltotop.js"></script>
-    <script src="js/my.js"></script>
+    <script src="../../../js/my.js"></script>
 </main>
 </body>
 </html>

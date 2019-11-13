@@ -64,7 +64,7 @@
             <div class="row">
                 <!-- sidebar -->
                 <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
-                    <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">Cosy Air Conditioner</a>
+                    <a href="admin_index.php" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">Cosy Air Conditioner</a>
                     <div class="bottom-border pb-3">
                         <img src="images/krakenforce%20logo.jpg" width="50" class="rounded-circle mr-3">
                         <a href="#" class="text-white">Kraken Force</a>

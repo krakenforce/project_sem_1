@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2019 at 01:04 PM
+-- Generation Time: Nov 13, 2019 at 03:10 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -35,6 +35,20 @@ CREATE TABLE `customer` (
   `phone` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL,
   `contact_type` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`customer_id`, `customer_name`, `email`, `phone`, `contact_type`) VALUES
+(1, 'Ngô Vũ Thanh Toàn', 'ngotoanlibra@gmail.com', '0984685751', 'email'),
+(2, 'Ngô Vũ Thanh Toàn', 'ngotoanlibra@gmail.com', '0984685751', 'email'),
+(3, 'toan', 'ngotoanlibra@gmail.com', '984685751', 'on'),
+(4, 'toanngo', 'ngotoanlibra@gmail.com', '0984685751', 'on'),
+(5, 'toan', 'ngotoanlibra@gmail.com', '0984685751', 'Phone'),
+(6, 'toanngo', 'ngotoan270997@gmail.com', '0984685751', 'Phone'),
+(7, 'toanngo', 'ngotoan270997@gmail.com', '0984685751', 'email'),
+(8, 'test', 'ngotoantest@gmail.com', '0984685751', 'Phone');
 
 -- --------------------------------------------------------
 
@@ -274,13 +288,13 @@ ALTER TABLE `product_detail`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `product_detail`

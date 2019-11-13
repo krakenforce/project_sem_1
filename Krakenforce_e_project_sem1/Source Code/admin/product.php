@@ -80,31 +80,29 @@
             <div class="row">
                 <!-- sidebar -->
                 <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
-                    <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">Cosy
-                        Air Conditioner</a>
+                    <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">Cosy Air Conditioner</a>
                     <div class="bottom-border pb-3">
                         <img src="images/krakenforce%20logo.jpg" width="50" class="rounded-circle mr-3">
                         <a href="#" class="text-white">Kraken Force</a>
                     </div>
                     <ul class="navbar-nav flex-column mt-4">
-                        <li class="nav-item"><a href="admin_index.php" class="nav-link text-white p-3 mb-2 current"><i
-                                        class="fas fa-home text-light fa-lg mr-3"></i>Dashboard</a></li>
+                        <li class="nav-item"><a href="admin_index.php" class="nav-link text-white p-3 mb-2 sidebar-link "><i
+                                    class="fas fa-home text-light fa-lg mr-3"></i>Dashboard</a></li>
                         <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i
-                                        class="fas fa-user text-light fa-lg mr-3"></i>Customer</a></li>
-                        <li class="nav-item"><a href="product.php" class="nav-link text-white p-3 mb-2 sidebar-link"><i
-                                        class="fas fa-shopping-cart text-light fa-lg mr-3"></i>Product</a></li>
-                        <li class="nav-item"><a href="../public/pages/index.php"
-                                                class="nav-link text-white p-3 mb-2 sidebar-link"><i
-                                        class="fas fa-snowflake text-light fa-lg mr-3"></i>Cosy Homepage</a></li>
+                                    class="fas fa-user text-light fa-lg mr-3"></i>Customer</a></li>
+                        <li class="nav-item"><a href="product.php" class="nav-link text-white p-3 mb-2 sidebar-link current"><i
+                                    class="fas fa-shopping-cart text-light fa-lg mr-3"></i>Product</a></li>
+                        <li class="nav-item"><a href="../public/pages/index.php" class="nav-link text-white p-3 mb-2 sidebar-link"><i
+                                    class="fas fa-snowflake text-light fa-lg mr-3"></i>Cosy Homepage</a></li>
                     </ul>
                 </div>
                 <!-- end of sidebar -->
-
+                
                 <!-- top-nav -->
                 <div class="col-xl-10 col-lg-9 col-md-8 ml-auto bg-dark fixed-top py-2 top-navbar">
                     <div class="row align-items-center">
                         <div class="col-md-4">
-                            <h4 class="text-light text-uppercase mb-0">Dashboard</h4>
+                            <h4 class="text-light text-uppercase mb-0">Product</h4>
                         </div>
                         <div class="col-md-5">
                             <form>
@@ -113,16 +111,16 @@
                                            placeholder="Search...">
                                     <button type="submit" name="search-btn" id="search-btn"
                                             class="btn btn-white search-button"><i
-                                                class="fas fa-search text-danger"></i></button>
+                                            class="fas fa-search text-danger"></i></button>
                                 </div>
                             </form>
                         </div>
                         <div class="col-md-3">
                             <ul class="navbar-nav">
                                 <li class="nav-item icon-parent"><a href="#" class="nav-link icon-bullet"><i
-                                                class="fas fa-comments text-muted fa-lg"></i></a></li>
+                                            class="fas fa-comments text-muted fa-lg"></i></a></li>
                                 <li class="nav-item icon-parent"><a href="#" class="nav-link icon-bullet"><i
-                                                class="fas fa-bell text-muted fa-lg"></i></a></li>
+                                            class="fas fa-bell text-muted fa-lg"></i></a></li>
                                 <li class="nav-item ml-md-auto"><a href="logout.php" class="nav-link"><i
                                                 class="fas fa-sign-out-alt text-danger fa-lg"></i></a></li>
                             </ul>
@@ -140,14 +138,20 @@
             <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
                 <div class="row align-items-center">
                     <div class="col-xl-6 col-12 mt-5 mb-xl-0">
-                        <h4 class="text-center">Product</h4>
+                        <a href="add.php"><button class="btn btn-success justify-content-end">Add a Product</button></a>
+                        <br/>
+                        <br/>
                         <table class="table table-striped bg-light text-center">
                             <thead>
                             <tr>
                                 <th scope="col">ID</th>
+                                <th scope="col">Product Code</th>
                                 <th scope="col">Product Name</th>
+                                <th scope="col">Brand</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">View More</th>
+                                <th scope="col">Update</th>
+                                <th scope="col">Delete</th>
                             </tr>
                             </thead>
                             <?php foreach ($products
@@ -158,155 +162,80 @@
                                     <?php echo $product->product_info['pro_id']; ?>
                                 </td>
                                 <td scope="row">
+                                    <?php echo $product->product_info['product_code']; ?>
+                                </td>
+                                <td scope="row">
                                     <?php echo $product->product_info['name']; ?>
                                 </td>
                                 <td scope="row">
-                                    <img height="40px" width="auto"
+                                    <?php echo $product->product_info['brand']; ?>
+                                </td>
+                                <td scope="row">
+                                    <img height="100px" width="auto"
                                          src="<?php echo $product->product_info['image']; ?>" alt="">
                                 </td>
                                 <td scope="row">
-                                    <a href="product.php?pro_id=<?php echo $product->product_info['pro_id']; ?>">
+                                    <a href="product_detail.php?pro_id=<?php echo $product->product_info['pro_id']; ?>">
                                         <button class="btn btn-success" id="vm-btn">View More</button>
                                     </a>
                                 </td>
                     </div>
+                    </td>
+                    <td scope="row">
+                        <a href="update.php?pro_id=<?= $product->product_info['pro_id']; ?>"><button class="btn btn-primary">Update</button></a>
+                    </td>
+                    <td scope="row">
+                        <button id="<?php echo $product->product_info['pro_id']; ?>" class=" btn btn-danger delete_row">
+                            Delete
+                        </button>
+                    </td>
                     </tr>
                     <?php
                         endforeach;
                         $db->closeConn();
                     ?>
                     </table>
-                    <div class="d-flex flex-column">
-                        <div class="d-flex justify-content-center">
-                            <ul class="pagination">
-                                <?php
-                                    if ((isset($_GET['search'])))
-                                    {
-                                        for ($i = 1; $i <= $total_pages; $i++)
-                                        {
-                                            if ($i == $current_page)
-                                            {
-                                                echo "<li class=\"page-item\"><a class=\"page-link page_active\" href=\"admin_index.php?search={$_GET['search']}&page={$i}\">{$i}</a></li>";
-                                            } else
-                                            {
-                                                echo "<li class=\"page-item\"><a class=\"page-link\" href=\"admin_index.php?search={$_GET['search']}&page={$i}\">{$i}</a></li>";
-                                            }
-                            
-                                        };
-                                    } else
-                                    {
-                        
-                                        for ($i = 1; $i <= $total_pages; $i++)
-                                        {
-                                            if ($i == $current_page)
-                                            {
-                                                echo "<li class=\"page-item\"><a class=\"page-link page_active\" href=\"admin_index.php?page={$i}\">{$i}</a></li>";
-                                            } else
-                                            {
-                                                echo "<li class=\"page-item\"><a class=\"page-link\" href=\"admin_index.php?page={$i}\">{$i}</a></li>";
-                                            }
-                            
-                                        }
-                                    }
-                                ?>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
-                <div class="col-xl-6 col-12">
-                    <table class="table table-dark table-hover text-center">
-                        <thead>
-                        <tr class="text-muted">
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>Monica</td>
-                            <td>$2000</td>
-                            <td>25/05/2018</td>
-                            <td><span class="badge badge-success w-75 py-2">Approved</span></td>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>Nick</td>
-                            <td>$2000</td>
-                            <td>25/05/2018</td>
-                            <td><span class="badge badge-success w-75 py-2">Approved</span></td>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>Alex</td>
-                            <td>$2000</td>
-                            <td>25/05/2018</td>
-                            <td><span class="badge badge-danger w-75 py-2">Pending</span></td>
-                        </tr>
-                        <tr>
-                            <th>4</th>
-                            <td>Jane</td>
-                            <td>$2000</td>
-                            <td>25/05/2018</td>
-                            <td><span class="badge badge-danger w-75 py-2">Pending</span></td>
-                        </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>Michael</td>
-                            <td>$2000</td>
-                            <td>25/05/2018</td>
-                            <td><span class="badge badge-success w-75 py-2">Approved</span></td>
-                        </tr>
-                        <tr>
-                            <th>6</th>
-                            <td>Kate</td>
-                            <td>$2000</td>
-                            <td>25/05/2018</td>
-                            <td><span class="badge badge-danger w-75 py-2">Pending</span></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <!-- pagination -->
-                    <nav>
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item">
-                                <a href="#" class="page-link py-2 px-3">
-                                    <span>Previous</span>
-                                </a>
-                            </li>
-                            <li class="page-item active">
-                                <a href="#" class="page-link py-2 px-3">
-                                    1
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link py-2 px-3">
-                                    2
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link py-2 px-3">
-                                    3
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link py-2 px-3">
-                                    <span>Next</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <!-- end of pagination -->
-                </div>
-                
             </div>
         </div>
     </div>
 </section>
-
+<div class="d-flex flex-column">
+    <div class="d-flex justify-content-center">
+        <ul class="pagination">
+            <?php
+                if ((isset($_GET['search'])))
+                {
+                    for ($i = 1; $i <= $total_pages; $i++)
+                    {
+                        if ($i == $current_page)
+                        {
+                            echo "<li class=\"page-item\"><a class=\"page-link page_active\" href=\"product.php?search={$_GET['search']}&page={$i}\">{$i}</a></li>";
+                        } else
+                        {
+                            echo "<li class=\"page-item\"><a class=\"page-link\" href=\"product.php?search={$_GET['search']}&page={$i}\">{$i}</a></li>";
+                        }
+                        
+                    };
+                } else
+                {
+                    
+                    for ($i = 1; $i <= $total_pages; $i++)
+                    {
+                        if ($i == $current_page)
+                        {
+                            echo "<li class=\"page-item\"><a class=\"page-link page_active\" href=\"product.php?page={$i}\">{$i}</a></li>";
+                        } else
+                        {
+                            echo "<li class=\"page-item\"><a class=\"page-link\" href=\"product.php?page={$i}\">{$i}</a></li>";
+                        }
+                        
+                    }
+                }
+            ?>
+        </ul>
+    </div>
+</div>
 <footer>
     <div class="container-fluid">
         <div class="row">
@@ -330,7 +259,7 @@
                     </div>
                     <div class="col-lg-6 text-center">
                         <p>&copy; 2019 Copyright. Made With <i class="fab fa-gitkraken text-danger"></i> by <span
-                                    class="text-success">Kraken Force</span></p>
+                                class="text-success">Kraken Force</span></p>
                     </div>
                 </div>
             </div>

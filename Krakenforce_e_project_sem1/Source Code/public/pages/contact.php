@@ -29,7 +29,7 @@
     <section id="sec_02">
         <div id="contact_main-container">
             <div id="c-left_container">
-                <H1>Contact<span>Us</span></H1>
+                <H1>Contact Us</H1>
                 <h2>Home Office:</h2>
                 <h3>212-214 Nguyen Dinh Chieu street, District 3, Ho Chi Minh city</h3>
                 <h3>Phone : XXXXXXXXX</h3>

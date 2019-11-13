@@ -69,7 +69,7 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
   <component name="RunDashboard">
@@ -113,6 +113,7 @@
       <workItem from="1573256957848" duration="3369000" />
       <workItem from="1573267180124" duration="7054000" />
       <workItem from="1573277673198" duration="9438000" />
+      <workItem from="1573602517334" duration="8886000" />
     </task>
     <servers />
   </component>

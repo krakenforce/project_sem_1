@@ -214,59 +214,26 @@
                     </div>
                 </div>
                 <div class="col-xl-6 col-12">
+                <h4 class="text-center">Customer Information</h4>
                     <table class="table table-dark table-hover text-center">
                         <thead>
                         <tr class="text-muted">
                             <th>#</th>
                             <th>Name</th>
-                            <th>Price</th>
-                            <th>Date</th>
-                            <th>Status</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Contact type</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
                             <th>1</th>
-                            <td>Monica</td>
-                            <td>$2000</td>
-                            <td>25/05/2018</td>
-                            <td><span class="badge badge-success w-75 py-2">Approved</span></td>
+                            <td>Toan</td>
+                            <td>ngotoanlibra@gmail.com</td>
+                            <td>0984685751</td>
+                            <td><span class="badge badge-success w-75 py-2">Email</span></td>
                         </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>Nick</td>
-                            <td>$2000</td>
-                            <td>25/05/2018</td>
-                            <td><span class="badge badge-success w-75 py-2">Approved</span></td>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>Alex</td>
-                            <td>$2000</td>
-                            <td>25/05/2018</td>
-                            <td><span class="badge badge-danger w-75 py-2">Pending</span></td>
-                        </tr>
-                        <tr>
-                            <th>4</th>
-                            <td>Jane</td>
-                            <td>$2000</td>
-                            <td>25/05/2018</td>
-                            <td><span class="badge badge-danger w-75 py-2">Pending</span></td>
-                        </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>Michael</td>
-                            <td>$2000</td>
-                            <td>25/05/2018</td>
-                            <td><span class="badge badge-success w-75 py-2">Approved</span></td>
-                        </tr>
-                        <tr>
-                            <th>6</th>
-                            <td>Kate</td>
-                            <td>$2000</td>
-                            <td>25/05/2018</td>
-                            <td><span class="badge badge-danger w-75 py-2">Pending</span></td>
-                        </tr>
+                        
                         </tbody>
                     </table>
                     <!-- pagination -->

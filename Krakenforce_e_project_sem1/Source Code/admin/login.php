@@ -34,7 +34,7 @@
             header("location: admin_index.php");
         } else
         {
-            $the_message = "username or password is incorrect.";
+            $the_message = "Username or password is incorrect.";
         }
     } else
     {
@@ -55,21 +55,24 @@
     <title>Sign in</title>
     
 </head>
-<body background="images/175932.jpg" ">
+<body background="images/gradient-background-26046-26731-hd-wallpapers.jpg" ">
 
 <div class="container-fluid" >
     <div class="col-md-4 col-md-offset-3" style="width: 300px; margin: 0 auto;">
         <div class="d-flex justify-content-center">
             <a href="../public/pages/index.php" style="text-decoration: none" class="navbar-brand nav-item">
-                <button class="btn btn-info">Cosy AirConditioner Home Page</button>
+                <img src="../public/pages/images/logo_full.png" height="80px" width="auto" alt="">
             </a>
+            
         </div>
         <br/>
+            <h3 class="text-center text-white">Welcome</h3>
+            <p class="text-center text-white">Enter username and password to access Admin Page</p>
         <div class="row">
             <form id="login-id" style="box-shadow: 5px 10px 15px 5px gray;" class="col-md-12 p-3 mb-5 bg-white rounded" action="" method="post">
 
                 <div class="form-group">
-                    <label for="username"><strong>User Name:</strong> </label>
+                    <label for="username"><strong>Username:</strong> </label>
                     <input type="text" class="form-control" name="username">
 
                 </div>
@@ -82,7 +85,7 @@
 
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" name="check" id="check_info">
-                    <label class="form-check-label" for="check_info">Check me out</label>
+                    <label class="form-check-label" for="check_info">Remember me</label>
                 </div>
                 <div class="form-group">
                     <h6 class="text-danger"><?php echo $the_message; ?></h6>

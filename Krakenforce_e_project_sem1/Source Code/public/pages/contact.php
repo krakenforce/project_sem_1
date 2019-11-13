@@ -1,6 +1,7 @@
 <?php
 include '../../includes/functions.php';
 $conn = new Database();
+$result = 0;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sql = "INSERT INTO customer(customer_name,email,phone,contact_type) VALUES (?,?,?,?);";
     $param = [
@@ -9,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_POST['phone'],
             $_POST['contact_type']
         ];
-    $conn->query_with_params($sql, $param);
+    $result = $conn->query_with_params($sql, $param);
 }
 
 //?>
@@ -88,7 +89,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </section>
     <?php require 'footer.php'; ?>
-
+    <?php
+    if($result > 0){
+        Database::showMessage("Thank you for contacting Cosy Air Conditioner");
+    }
+    ?>
 </main>
 </body>
 </html>

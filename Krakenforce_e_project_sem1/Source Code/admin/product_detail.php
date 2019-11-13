@@ -16,7 +16,8 @@
             <div class="row">
                 <!-- sidebar -->
                 <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
-                    <a href="admin_index.php" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">Cosy
+                    <a href="admin_index.php"
+                       class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">Cosy
                         Air Conditioner</a>
                     <div class="bottom-border pb-3">
                         <img src="images/krakenforce%20logo.jpg" width="50" class="rounded-circle mr-3">
@@ -69,9 +70,12 @@
             <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
                 <div class="row align-items-center">
                     <div class="col-xl-10 col-12 ml-4 mt-5 mb-xl-0">
-                        <a href="product.php">
-                            <button class="btn btn-danger">x</button>
-                        </a>
+                        <script>
+                            function Back() {
+                                history.back();
+                            }
+                        </script>
+                        <button class="btn btn-danger" onclick="Back();">x</button>
                         <form action="#" method="post" enctype="multipart/form-data">
                             <br/>
                             <img class="align-content-center" height="100px" width="auto"
@@ -170,7 +174,7 @@
 
                         </form>
                         <a href="update.php?pro_id=<?= $product->product_info['pro_id']; ?>">
-                            <button  class="btn btn-success">Update</button>
+                            <button class="btn btn-success">Update</button>
                         </a>
                     </div>
                 </div>

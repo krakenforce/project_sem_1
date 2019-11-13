@@ -13,8 +13,8 @@
     <script src="../../../js/jquery.js"></script>
 </head>
 <body style="display: flex; flex-direction: column">
+<?php require 'header.php' ?>
 <main onmouseup="footerOut()">
-    <?php require 'header.php' ?>
     <section id="sec_02">
         <div id="slider">
             <div id="wowslider-container1">

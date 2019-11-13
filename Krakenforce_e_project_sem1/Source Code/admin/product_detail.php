@@ -69,7 +69,7 @@
             <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
                 <div class="row align-items-center">
                     <div class="col-xl-10 col-12 ml-4 mt-5 mb-xl-0">
-                        <a href="product.php    ">
+                        <a href="product.php">
                             <button class="btn btn-danger">x</button>
                         </a>
                         <form action="#" method="post" enctype="multipart/form-data">

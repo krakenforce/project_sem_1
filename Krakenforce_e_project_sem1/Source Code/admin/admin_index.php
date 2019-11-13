@@ -169,7 +169,7 @@
                                              src="<?php echo $product->product_info['image']; ?>" alt="">
                                     </td>
                                     <td scope="row">
-                                        <a href="product.php?pro_id=<?php echo $product->product_info['pro_id']; ?>">
+                                        <a href="product_detail.php?pro_id=<?php echo $product->product_info['pro_id']; ?>">
                                             <button class="btn btn-success" id="vm-btn">View More</button>
                                         </a>
                                     </td>

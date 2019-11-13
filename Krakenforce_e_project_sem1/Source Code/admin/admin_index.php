@@ -28,8 +28,10 @@
     //tim` tong so luong trang/pages tu` tong~ so luong rows + limit tung` trang:
     $products = array_slice($all_products, $off_set, $limit);
     $total_pages = ceil($total_record / $limit);
-
+    
+    $customers = Customer::find_all_customers();
 ?>
+
 <script>
     $(document).ready(function () {
         $('#delete-btn').on("click", function () {
@@ -80,7 +82,8 @@
             <div class="row">
                 <!-- sidebar -->
                 <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
-                    <a href="admin_index.php" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">Cosy
+                    <a href="admin_index.php"
+                       class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">Cosy
                         Air Conditioner</a>
                     <div class="bottom-border pb-3">
                         <img src="images/krakenforce%20logo.jpg" width="50" class="rounded-circle mr-3">
@@ -89,7 +92,8 @@
                     <ul class="navbar-nav flex-column mt-4">
                         <li class="nav-item"><a href="admin_index.php" class="nav-link text-white p-3 mb-2 current"><i
                                         class="fas fa-home text-light fa-lg mr-3"></i>Dashboard</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i
+                        <li class="nav-item"><a href="customer%20managerment/customer_manager.php"
+                                                class="nav-link text-white p-3 mb-2 sidebar-link"><i
                                         class="fas fa-user text-light fa-lg mr-3"></i>Customer</a></li>
                         <li class="nav-item"><a href="product.php" class="nav-link text-white p-3 mb-2 sidebar-link"><i
                                         class="fas fa-shopping-cart text-light fa-lg mr-3"></i>Product</a></li>
@@ -151,127 +155,98 @@
                             </tr>
                             </thead>
                             <?php foreach ($products
-                                
-                                as $product): ?>
-                            <tr>
-                                <td scope="row">
-                                    <?php echo $product->product_info['pro_id']; ?>
-                                </td>
-                                <td scope="row">
-                                    <?php echo $product->product_info['name']; ?>
-                                </td>
-                                <td scope="row">
-                                    <img height="40px" width="auto"
-                                         src="<?php echo $product->product_info['image']; ?>" alt="">
-                                </td>
-                                <td scope="row">
-                                    <a href="product.php?pro_id=<?php echo $product->product_info['pro_id']; ?>">
-                                        <button class="btn btn-success" id="vm-btn">View More</button>
-                                    </a>
-                                </td>
-                    </div>
-                    </tr>
-                    <?php
-                        endforeach;
-                        $db->closeConn();
-                    ?>
-                    </table>
-                    <div class="d-flex flex-column">
-                        <div class="d-flex justify-content-center">
-                            <ul class="pagination">
-                                <?php
-                                    if ((isset($_GET['search'])))
-                                    {
-                                        for ($i = 1; $i <= $total_pages; $i++)
-                                        {
-                                            if ($i == $current_page)
-                                            {
-                                                echo "<li class=\"page-item\"><a class=\"page-link page_active\" href=\"admin_index.php?search={$_GET['search']}&page={$i}\">{$i}</a></li>";
-                                            } else
-                                            {
-                                                echo "<li class=\"page-item\"><a class=\"page-link\" href=\"admin_index.php?search={$_GET['search']}&page={$i}\">{$i}</a></li>";
-                                            }
                             
-                                        };
-                                    } else
-                                    {
-                        
-                                        for ($i = 1; $i <= $total_pages; $i++)
-                                        {
-                                            if ($i == $current_page)
-                                            {
-                                                echo "<li class=\"page-item\"><a class=\"page-link page_active\" href=\"admin_index.php?page={$i}\">{$i}</a></li>";
-                                            } else
-                                            {
-                                                echo "<li class=\"page-item\"><a class=\"page-link\" href=\"admin_index.php?page={$i}\">{$i}</a></li>";
-                                            }
+                                           as $product): ?>
+                                <tr>
+                                    <td scope="row">
+                                        <?php echo $product->product_info['pro_id']; ?>
+                                    </td>
+                                    <td scope="row">
+                                        <?php echo $product->product_info['name']; ?>
+                                    </td>
+                                    <td scope="row">
+                                        <img height="40px" width="auto"
+                                             src="<?php echo $product->product_info['image']; ?>" alt="">
+                                    </td>
+                                    <td scope="row">
+                                        <a href="product.php?pro_id=<?php echo $product->product_info['pro_id']; ?>">
+                                            <button class="btn btn-success" id="vm-btn">View More</button>
+                                        </a>
+                                    </td>
+
+                                </tr>
                             
+                            <?php
+                            endforeach;
+                                $db->closeConn();
+                            ?>
+                        </table>
+                        <div class="d-flex flex-column">
+                            <div class="d-flex justify-content-center">
+                                <ul class="pagination">
+                                    <?php
+                                        if ((isset($_GET['search'])))
+                                        {
+                                            for ($i = 1; $i <= $total_pages; $i++)
+                                            {
+                                                if ($i == $current_page)
+                                                {
+                                                    echo "<li class=\"page-item\"><a class=\"page-link page_active\" href=\"admin_index.php?search={$_GET['search']}&page={$i}\">{$i}</a></li>";
+                                                } else
+                                                {
+                                                    echo "<li class=\"page-item\"><a class=\"page-link\" href=\"admin_index.php?search={$_GET['search']}&page={$i}\">{$i}</a></li>";
+                                                }
+                                                
+                                            };
+                                        } else
+                                        {
+                                            
+                                            for ($i = 1; $i <= $total_pages; $i++)
+                                            {
+                                                if ($i == $current_page)
+                                                {
+                                                    echo "<li class=\"page-item\"><a class=\"page-link page_active\" href=\"admin_index.php?page={$i}\">{$i}</a></li>";
+                                                } else
+                                                {
+                                                    echo "<li class=\"page-item\"><a class=\"page-link\" href=\"admin_index.php?page={$i}\">{$i}</a></li>";
+                                                }
+                                                
+                                            }
                                         }
-                                    }
-                                ?>
-                            </ul>
+                                    ?>
+                                </ul>
+                            </div>
                         </div>
                     </div>
+                    <div class="col-xl-6 col-12">
+                        <h4 class="text-center">Customer Information</h4>
+                        <table class="table table-dark text-center">
+                            <thead>
+                            <tr class="text-muted">
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone</th>
+                            </tr>
+                            </thead>
+                            <?php foreach ($customers
+                                           as $customer): ?>
+                                <tbody>
+                                <tr>
+                                    <td scope="row"><?php echo $customer->customer_info['customer_id'] ?></td>
+                                    <td scope="row"><?php echo $customer->customer_info['customer_name'] ?></td>
+                                    <td scope="row"><?php echo $customer->customer_info['email'] ?></td>
+                                    <td scope="row"><?php echo $customer->customer_info['phone'] ?></td>
+                                </tr>
+                                </tbody>
+                            <?php endforeach;
+                                $db->closeConn(); ?>
+                        </table>
+                    </div>
+
                 </div>
-                <div class="col-xl-6 col-12">
-                <h4 class="text-center">Customer Information</h4>
-                    <table class="table table-dark table-hover text-center">
-                        <thead>
-                        <tr class="text-muted">
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Contact type</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>Toan</td>
-                            <td>ngotoanlibra@gmail.com</td>
-                            <td>0984685751</td>
-                            <td><span class="badge badge-success w-75 py-2">Email</span></td>
-                        </tr>
-                        
-                        </tbody>
-                    </table>
-                    <!-- pagination -->
-                    <nav>
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item">
-                                <a href="#" class="page-link py-2 px-3">
-                                    <span>Previous</span>
-                                </a>
-                            </li>
-                            <li class="page-item active">
-                                <a href="#" class="page-link py-2 px-3">
-                                    1
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link py-2 px-3">
-                                    2
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link py-2 px-3">
-                                    3
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link py-2 px-3">
-                                    <span>Next</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <!-- end of pagination -->
-                </div>
-                
             </div>
         </div>
-    </div>
 </section>
 
 <footer>

@@ -1,73 +1,106 @@
 <?php
     
-    class ShowPhp
+    include_once dirname(__FILE__, 2) . '/includes/functions.php';
+    
+    class Customer
     {
-        static function showMessage($message)
+        public $customer_info = array(
+            'customer_id' => null,
+            'customer_name' => null,
+            'email' => null,
+            'phone' => null,
+            'contact_type' => null
+        );
+        
+        // to access the id of customer_example, do: echo $customer_example->show_customer_info('customer_id')
+        public function show_customer_info($property)
         {
-            echo "<script>alert(\"$message\");</script>";
-        }
-    }
-    
-    class Customer_Database
-    {
-        private $dns = "mysql:host=localhost; dbname=ac_sell; charset=utf8";
-        private $username = "krakenforce";
-        private $password = "123456";
-        private $pdo;
-        private $stmt;
-    
-        public function __construct()
-        {
-            try
+            $property = trim(strtolower($property));
+            if ($this->attribute_exists($property))
             {
-                $this->pdo = new PDO($this->dns, $this->username, $this->password);
-            } catch (Exception $e)
+                return $this->customer_info[$property];
+            } else
             {
-                ShowPhp::showMessage($e->getMessage());
+                return "Property doesn't exist in customer_info";
             }
         }
-    
-        public function closeConn()
+        
+        public static function find_all_customers()
         {
-            $this->pdo = null;
+            return self::findThis_query('SELECT * from customer;');
         }
-    
-        public function selectData($query)
+        
+        public static function find_customer_by_id($id)
         {
-            try
-            {
-                $this->stmt = $this->pdo->prepare($query);
-                $this->stmt->execute();
-                return $this->stmt;
-            } catch (Exception $e)
-            {
-                ShowPhp::showMessage($e->getMessage());
-            }
+            $result_set = self::findThis_query("SELECT * from customer where customer_id = $id LIMIT 1;");
+            return !empty($result_set) ? array_shift($result_set) : false;
         }
-    
-        public function selectDataParam($query, $param)
+        
+        public static function find_customers_by_name($name)
         {
-            try
-            {
-                $this->stmt = $this->pdo->prepare($query);
-                $this->stmt->execute($param);
-                return $this->stmt;
-            } catch (Exception $e)
-            {
-                ShowPhp::showMessage($e->getMessage());
-            }
+            $name = strtolower(trim($name));
+            $result_set = self::findThis_query("SELECT * from customer where customer_name = '$name';");
+            return $result_set;
         }
-    
-        public function updateParam($statement, $param)
+        
+        public static function delete_customer_by_id($id)
         {
-            try
+            $conn = new Database();
+            $sql = "DELETE FROM customer where customer_id = ?;";
+            $param = [$id];
+            $result = $conn->query_with_params($sql, $param);
+            return $result;
+        }
+        
+        public static function find_customers_by_search($keyword)
+        {
+            $keyword = trim(strtolower($keyword));
+            $parameter = ["%{$keyword}%"];
+            $sql = "SELECT * from customer where (LOWER (CONCAT_WS(customer_id, customer_name, email, phone,contact_type)) like ? );";
+            return self::findThis_query_prepared($sql, $parameter);
+        }
+        
+        // dùng "select *" để pass vào function này:
+        public static function findThis_query($sql)
+        {
+            $conn = new Database();
+            $result_set = $conn->pdo->query($sql);
+            $array_of_objects = array();
+            while ($row = $result_set->fetch(PDO::FETCH_ASSOC))
             {
-                $this->stmt = $this->pdo->prepare($statement);
-                $this->stmt->execute($param);
-                return true;
-            } catch (Exception $e)
-            {
-                ShowPhp::showMessage($e->getMessage());
+                $array_of_objects[$row['customer_id']] = self::instantiate($row);
             }
+            return $array_of_objects;
+        }
+        
+        public static function findThis_query_prepared($sql, $param)
+        {
+            $conn = new Database();
+            $result_set = $conn->query_with_params($sql, $param);
+            $array_of_objects = array();
+            while ($row = $result_set->fetch(PDO::FETCH_ASSOC))
+            {
+                $array_of_objects[$row['customer_id']] = self::instantiate($row);
+            }
+            return $array_of_objects;
+        }
+        
+        public static function instantiate($row)
+        {
+            $object = new self;
+            foreach ($row as $attribute => $value)
+            {
+                if ($object->attribute_exists($attribute))
+                {
+                    $object->customer_info[$attribute] = $value;
+                }
+            }
+            return $object;
+        }
+        
+        private function attribute_exists($attribute)
+        {
+            $object_attributes = $this->customer_info;
+            return key_exists($attribute, $object_attributes);
         }
     }

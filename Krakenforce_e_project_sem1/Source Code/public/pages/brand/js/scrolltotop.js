@@ -113,6 +113,8 @@ var pFeature03 = document.getElementById("pFeature03");
 var pSpecs01 = document.getElementById("pSpecs01");
 var pSpecs02 = document.getElementById("pSpecs02");
 var pSpecs03 = document.getElementById("pSpecs03");
+var pCompareLink = document.getElementById("pCompareLink");
+
 function Mitsubishi_Split_01() {
     boxEnable();
     link.setAttribute("href", "../Download/Mitsubishi/Split/01.docx");

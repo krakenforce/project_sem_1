@@ -1,7 +1,7 @@
 <?php ?>
 <section id="sec_pDetail">
     <div id="pDetail_left_box">
-        <img src="../images/brands/icon-proddetails.png" alt="" draggable="false"/>
+        <img src="../public/pages/images/brands/icon-proddetails.png" alt="" draggable="false"/>
     </div>
     <div id="pDetail_Container">
         <div id="pDetail-close" onClick="pDetail_box_Close()"></div>
@@ -10,7 +10,7 @@
         </div>
         <div id="pDetail_price">
             <div class="pDetail_price-icon_box">
-                <img src="../images/brands/price_icon.png" alt="" draggable="false"/>
+                <img src="../public/pages/images/brands/price_icon.png" alt="" draggable="false"/>
             </div>
             <div class="pDetail_price-detail">
                 <span id="pPrice" class="price">&nbsp;</span>
@@ -19,7 +19,7 @@
 
         <div id="pDetail_download">
             <div class="pDetail_download-icon_box">
-                <img src="../images/brands/download_icon.png" alt="" draggable="false"/>
+                <img src="../public/pages/images/brands/download_icon.png" alt="" draggable="false"/>
             </div>
             <div class="pDetail_download-detail">
                 <a id="pdownloadFile" href="" class="download download-highlight">Download</a>
@@ -28,10 +28,10 @@
 
         <div id="pDetail_compare">
             <div class="pDetail_compare-icon_box">
-                <img src="../images/brands/compare_icon.png" alt="" draggable="false"/>
+                <img src="../public/pages/images/brands/compare_icon.png" alt="" draggable="false"/>
             </div>
             <div class="pDetail_compare-detail">
-                <a href='../compare.php' class='compare compare-highlight'>Compare</a>
+                <a id="pCompareLink" href='../public/pages/compare.php' class='compare compare-highlight'>Compare</a>
             </div>
         </div>
         <div class="pDetail_name-detail">
@@ -59,4 +59,4 @@
         </div>
     </div>
 </section>
-<script src="js/detailBox.js"></script>
+<script src="<?php echo dirname(__FILE__,2); ?>/js/detailBox.js"></script>

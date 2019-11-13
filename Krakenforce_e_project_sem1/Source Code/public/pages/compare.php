@@ -31,7 +31,7 @@
             <div class="compare-dropmenu_bar">
                 <label>
                     <select id="option1">
-                        <option>---------------Select Product---------------</option>
+                        <option><?php echo isset($_GET['pro_id'])? $chosen_product->product_info['name'] : "---------------Select Product---------------"; ?></option>
                         <option disabled></option>
                         <?php foreach ($products as $product): ?>
                             <option value="<?php echo $product->product_info['pro_id']; ?>"><?php echo $product->product_info['name']; ?></option>
@@ -234,7 +234,7 @@
         </div>
     </section>
     <?php require 'footer.php' ?>
-    <script src="brand/js/my.js"></script>
+    <script src="../../js/my.js"></script>
     <script>
         $(document).ready(function() {
             $('select#option1').on('change', function () {

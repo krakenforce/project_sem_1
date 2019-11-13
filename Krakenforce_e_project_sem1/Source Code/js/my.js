@@ -9,7 +9,8 @@ $(document).ready(function(){
             feature3 = $(this).find('.product_feature3').val(),
             specs1 = $(this).find('.product_specs1').val(),
             specs2 = $(this).find('.product_specs2').val(),
-            specs3 = $(this).find('.product_specs3').val();
+            specs3 = $(this).find('.product_specs3').val(),
+            product_id = $(this).find('.product_id').val();
 
         boxEnable();
         link.setAttribute("href", download);
@@ -24,6 +25,7 @@ $(document).ready(function(){
         pSpecs01.innerHTML = specs1;
         pSpecs02.innerHTML = specs2;
         pSpecs03.innerHTML = specs3;
+        pCompareLink.setAttribute("href", "../compare.php?pro_id="+product_id);
         disableScroll()
     });
 });

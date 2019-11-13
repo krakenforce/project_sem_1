@@ -72,6 +72,7 @@
                                 </div>
                                 <a>
                                     <div class="product-Box_hover_pD1 btn_details">
+                                        <input type="hidden" class="product_id" value="<?php echo $product->product_info['pro_id']; ?>">
                                         <input type="hidden" class="product_download" value="../../../admin/<?php echo $product->product_info['download']; ?>">
                                         <input type="hidden" class="product_image" value="../../../admin/<?php echo $product->product_info['image']; ?>">
                                         <input type="hidden" class="product_price" value="<?php echo $product->product_info['price']; ?>">
@@ -117,6 +118,7 @@
                                 </div>
                                 <a>
                                     <div class="product-Box_hover_pD2 btn_details">
+                                        <input type="hidden" class="product_id" value="<?php echo $product2->product_info['pro_id']; ?>">
                                         <input type="hidden" class="product_download" value="../../../admin/<?php echo $product2->product_info['download']; ?>">
                                         <input type="hidden" class="product_image" value="../../../admin/<?php echo $product2->product_info['image']; ?>">
                                         <input type="hidden" class="product_price" value="<?php echo $product2->product_info['price']; ?>">
@@ -161,6 +163,7 @@
                                 </div>
                                 <a>
                                     <div class="product-Box_hover_pD3 btn_details">
+                                        <input type="hidden" class="product_id" value="<?php echo $product3->product_info['pro_id']; ?>">
                                         <input type="hidden" class="product_download" value="../../../admin/<?php echo $product3->product_info['download']; ?>">
                                         <input type="hidden" class="product_image" value="../../../admin/<?php echo $product3->product_info['image']; ?>">
                                         <input type="hidden" class="product_price" value="<?php echo $product3->product_info['price']; ?>">
@@ -182,10 +185,10 @@
         </div>
     </section>
     <?php $db->closeConn(); ?>
-    <?php include './Product_Detail Box.php' ?>
-    <?php require 'footer.php' ?>
+    <?php include '../../../includes/Product_Detail Box.php'; ?>
+    <?php require 'footer.php'; ?>
     <script src="js/scrolltotop.js"></script>
-    <script src="js/my.js"></script>
+    <script src="../../../js/my.js"></script>
 </main>
 </body>
 </html>

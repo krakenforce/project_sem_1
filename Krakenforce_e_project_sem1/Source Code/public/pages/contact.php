@@ -1,6 +1,7 @@
 <?php
     require_once '../../classes/customer.class.php';
-    $db = new Customer_Database();
+    require_once '../../includes/functions.php';
+    $db = new Database();
     if ($_SERVER['REQUEST_METHOD'] === 'POST'):
         $stmt = "INSERT INTO customer(customer_name,email,phone,contact_type) VALUES (?,?,?,?)";
         $param = [
@@ -9,7 +10,7 @@
             $_POST['phone'],
             $_POST['contact_type']
         ];
-        $db->updateParam($stmt, $param);
+        $db->query_with_params($stmt,$param);
         header("location: contact.php");
     endif;
 ?>

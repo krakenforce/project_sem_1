@@ -41,7 +41,7 @@ class Database {
                 // trả result-set(rows data) cho lệnh SELECT
                 return $this->stmt;
             }else {
-                //nếu không phải là lệnh select thì return true(1) hoặc false(0):
+                //nếu không phải là lệnh select thì return số rows affected:
                 return $result = $this->stmt->rowCount();
             }
         }catch(PDOException $e) {

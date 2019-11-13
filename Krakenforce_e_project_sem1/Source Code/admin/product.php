@@ -148,6 +148,7 @@
                                 <th scope="col">Product Code</th>
                                 <th scope="col">Product Name</th>
                                 <th scope="col">Brand</th>
+                                <th scope="col">Type</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">View More</th>
                                 <th scope="col">Update</th>
@@ -169,6 +170,9 @@
                                 </td>
                                 <td scope="row">
                                     <?php echo $product->product_info['brand']; ?>
+                                </td>
+                                <td scope="row">
+                                    <?php echo $product->product_info['type']; ?>
                                 </td>
                                 <td scope="row">
                                     <img height="100px" width="auto"

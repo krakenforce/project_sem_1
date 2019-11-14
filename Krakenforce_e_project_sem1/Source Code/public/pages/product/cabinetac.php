@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="page_heading-text">
-        <h1>Split Air Conditioners</h1>
+        <h1>Cabinet Air Conditioners</h1>
     </div>
 </section>
 <main onmouseup="footerOut()">

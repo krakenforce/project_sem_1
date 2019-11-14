@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7cfab233-51c3-4193-8a57-4033679105c7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/product_function.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/footer.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/header.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/admin_index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/admin_index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/customer managerment/customer_manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/customer managerment/customer_manager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/pages/product/cabinetac.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/product/cabinetac.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/pages/product/cassetteac.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/product/cassetteac.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/pages/product/splitac.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/product/splitac.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +95,8 @@
       <workItem from="1573529190229" duration="5091000" />
       <workItem from="1573550208039" duration="150000" />
       <workItem from="1573550692374" duration="17921000" />
-      <workItem from="1573704518128" duration="441000" />
+      <workItem from="1573704518128" duration="495000" />
+      <workItem from="1573705093780" duration="759000" />
     </task>
     <servers />
   </component>
@@ -105,7 +108,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

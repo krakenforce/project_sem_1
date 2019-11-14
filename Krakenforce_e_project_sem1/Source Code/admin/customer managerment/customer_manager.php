@@ -227,16 +227,16 @@
                     <div class="col-lg-6 text-center">
                         <ul class="list-inline">
                             <li class="list-inline-item mr-2">
-                                <a href="admin_index.php" class="text-dark">Dashboard</a>
+                                <a href="../admin_index.php" class="text-dark">Dashboard</a>
                             </li>
                             <li class="list-inline-item mr-2">
-                                <a href="#" class="text-dark">Customer</a>
+                                <a href="customer_manager.php" class="text-dark">Customer</a>
                             </li>
                             <li class="list-inline-item mr-2">
-                                <a href="#" class="text-dark">Product</a>
+                                <a href="../product.php" class="text-dark">Product</a>
                             </li>
                             <li class="list-inline-item mr-2">
-                                <a href="../public/pages/index.php" class="text-dark">Cosy AC Homepage</a>
+                                <a href="../../public/pages/index.php" class="text-dark">Cosy AC Homepage</a>
                             </li>
                         </ul>
                     </div>

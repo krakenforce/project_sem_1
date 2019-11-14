@@ -14,27 +14,28 @@
 
 </head>
 <body style="display: flex; flex-direction: column">
-<main onmouseup="footerOut()">
-    <?php require 'header.php' ?>
-    <section id="sec_02">
-        <div id="slider">
-            <div id="wowslider-container1">
-                <div class="ws_images">
-                    <ul>
-                        <li><img src="../images/slider/split_slider/014.png" alt="" title="" id="wows1_0"></li>
-                        <li><img src="../images/slider/split_slider/024.png" alt="" title="" id="wows1_1"></li>
-                        <li><img src="../images/slider/split_slider/034.png" alt="" title="" id="wows1_2"></li>
-                        <li><img src="../images/slider/split_slider/04.png" alt="" title="" id="wows1_3"></li>
-                        <li><img src="../images/slider/split_slider/05.png" alt="" title="" id="wows1_4"></li>
-                    </ul>
-                </div>
-                <script src="js/SplitSlide.js"></script>
+<?php require 'header.php' ?>
+<section id="sec_02">
+    <div id="slider">
+        <div id="wowslider-container1">
+            <div class="ws_images">
+                <ul>
+                    <li><img src="../images/slider/split_slider/014.png" alt="" title="" id="wows1_0"></li>
+                    <li><img src="../images/slider/split_slider/024.png" alt="" title="" id="wows1_1"></li>
+                    <li><img src="../images/slider/split_slider/034.png" alt="" title="" id="wows1_2"></li>
+                    <li><img src="../images/slider/split_slider/04.png" alt="" title="" id="wows1_3"></li>
+                    <li><img src="../images/slider/split_slider/05.png" alt="" title="" id="wows1_4"></li>
+                </ul>
             </div>
+            <script src="js/SplitSlide.js"></script>
         </div>
-        <div class="page_heading-text">
-            <h1>Split Air Conditioners</h1>
-        </div>
-    </section>
+    </div>
+    <div class="page_heading-text">
+        <h1>Split Air Conditioners</h1>
+    </div>
+</section>
+<main onmouseup="footerOut()">
+    
     <section id="sec_03">
         <div id="box_division">
             <ul>

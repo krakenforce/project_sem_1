@@ -260,10 +260,10 @@
                                 <a href="admin_index.php" class="text-dark">Dashboard</a>
                             </li>
                             <li class="list-inline-item mr-2">
-                                <a href="#" class="text-dark">Customer</a>
+                                <a href="customer%20managerment/customer_manager.php" class="text-dark">Customer</a>
                             </li>
                             <li class="list-inline-item mr-2">
-                                <a href="#" class="text-dark">Product</a>
+                                <a href="product.php" class="text-dark">Product</a>
                             </li>
                             <li class="list-inline-item mr-2">
                                 <a href="../public/pages/index.php" class="text-dark">Cosy AC Homepage</a>

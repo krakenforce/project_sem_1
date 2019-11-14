@@ -114,7 +114,7 @@
                                 <div class="form-group col-md-2">
                                     <label for="">Product Code: </label>
                                     <input type="text" name="product_code" class="form-control"
-                                           placeholder="Enter product code">
+                                           placeholder="Enter product code" value="SP">
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="">Brand: </label>
@@ -141,24 +141,24 @@
                                 <div class="form-group col-md-4">
                                     <label for="">Ton: </label>
                                     <input type="number" step="0.01" name="ton" id="" class="form-control"
-                                           placeholder="Enter product ton">
+                                           placeholder="Enter product ton" value="0">
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="">Cooling capacity: </label>
                                     <input type="number" name="cooling_cap" id="" class="form-control"
-                                           placeholder="Enter cooling capacity">
+                                           placeholder="Enter cooling capacity" value="0">
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="">Heating capacity: </label>
                                     <input type="number" name="heating_cap" id="" class="form-control"
-                                           placeholder="Enter heating capacity">
+                                           placeholder="Enter heating capacity" value="0">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="">Power Input: </label>
                                     <input type="number" name="pw_input" id="" class="form-control"
-                                           placeholder="Enter Power Input">
+                                           placeholder="Enter Power Input" value="0">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="">EER: </label>

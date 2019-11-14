@@ -1,7 +1,7 @@
 <?php
 
-include_once dirname(__FILE__, 2) . '/includes/functions.php';
-include_once dirname(__FILE__, 2) . '/includes/config.php';
+include_once realpath(dirname(__FILE__) . '/..') . '/includes/functions.php';
+include_once realpath(dirname(__FILE__) . '/..') . '/includes/config.php';
 
 class Database {
     private $dns = DSN;

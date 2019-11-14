@@ -113,7 +113,7 @@
                         <div class="col-md-5">
                             <form>
                                 <div class="input-group">
-                                    <input type="search" name="search" class="form-control search-input"
+                                    <input type="search" name="search" class="form-control search-input text-light"
                                            placeholder="Search...">
                                     <button type="submit" name="search-btn" id="search-btn"
                                             class="btn btn-white search-button"><i

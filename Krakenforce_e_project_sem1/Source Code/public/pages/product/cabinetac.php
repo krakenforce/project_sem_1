@@ -56,7 +56,7 @@
                             <input type="hidden" class="product_id" value="<?php echo $product->product_info['pro_id']; ?>">
                             <input type="hidden" class="product_download" value="../../../admin/<?php echo $product->product_info['download']; ?>">
                             <input type="hidden" class="product_image" value="../../../admin/<?php echo $product->product_info['image']; ?>">
-                            <input type="hidden" class="product_price" value="<?php echo $product->product_info['price']; ?>">
+                            <input type="hidden" class="product_price" value="<?php echo number_format($product->product_info['price']); ?>">
                             <input type="hidden" class="product_name" value="<?php echo $product->product_info['name']; ?>">
                             <input type="hidden" class="product_feature1" value="<?php echo $product->product_info['fea_01']; ?>">
                             <input type="hidden" class="product_feature2" value="<?php echo $product->product_info['fea_02']; ?>">

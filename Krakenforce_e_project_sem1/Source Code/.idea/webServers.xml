@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="e5f32ae9-627b-4471-a0a8-fb329f90c549" name="local" url="http://localhost:8888/clone test\project_sem_1\Krakenforce_e_project_sem1\Source Code">
+        <fileTransfer port="0" mountedRoot="C:\xampp\htdocs\clone test\project_sem_1\Krakenforce_e_project_sem1\Source Code" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>

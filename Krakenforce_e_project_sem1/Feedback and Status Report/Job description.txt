@@ -1,0 +1,4 @@
+Job Description:
+1) Ngo Vu Thanh Toan handles Database and Document. As a Leader, he also gives advide and fix bugs
+2) Doan Le Nha Tuan handles Backend base on MVC model
+3) Pham Huu Loi and Nguyen Minh Hung handles Frontend and User-interface

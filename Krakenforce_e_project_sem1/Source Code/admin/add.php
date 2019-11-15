@@ -186,7 +186,7 @@
                                 <div class="form-group col-md-3">
                                     <label for="">Price: </label>
                                     <input type="number" name="price" id="" class="form-control"
-                                           placeholder="Enter price (number)">
+                                           placeholder="Enter price (number)" value="0">
                                 </div>
 
                                 <div class="form-group col-md-9">

@@ -59,4 +59,4 @@
         </div>
     </div>
 </section>
-<script src="<?php echo dirname(__FILE__,2); ?>/js/detailBox.js"></script>
+<script src="<?php echo realpath(dirname(__FILE__) . '/..'); ?>/js/detailBox.js"></script>

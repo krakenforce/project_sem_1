@@ -178,7 +178,6 @@
                                 <div class="form-group col-md-6">
                                     <label for="">EER: </label>
                                     <input type="text" name="eer" id="" class="form-control" placeholder="Enter EER"
-                                           value="0"
                                            value="<?php echo $this_product->product_info['eer']; ?>">
                                 </div>
                             </div>

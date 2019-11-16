@@ -1,7 +1,12 @@
+-----------------  CAUTION !!! -------------------
+
 1) MySQL Database user account:
 - username: krakenforce
 - password: 123456
-2) Admin Login:
+You must register an account as above on Phpmyadmin to access the database.
+
+2) Admin Page Login:
 - username: krakenforce
--password: 123456
+- password: 123456
+We created this account, you just need to enter it and log in.
 

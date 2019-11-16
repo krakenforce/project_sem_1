@@ -8,5 +8,5 @@ You must register an account as above on Phpmyadmin to access the database.
 2) Admin Page Login:
 - username: krakenforce
 - password: 123456
-We created this account, you just need to enter it and log in.
+We created this account, you just need to enter it and log in ADMIN PAGE.
 

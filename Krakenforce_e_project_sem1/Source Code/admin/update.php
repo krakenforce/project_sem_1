@@ -119,12 +119,7 @@
                         <h2 class="text-center">Product Infomation Detail Update</h2>
                         <form action="" method="POST" enctype="multipart/form-data">
                             <div class="form-row">
-                                <div class="form-group col-md-2">
-                                    <label for="">Product Code: </label>
-                                    <input type="text" name="product_code" class="form-control"
-                                           placeholder="Enter product code"
-                                           value="<?php echo $this_product->product_info['product_code']; ?>">
-                                </div>
+
                                 <div class="form-group col-md-2">
                                     <label for="">Brand: </label>
                                     <input type="text" name="brand" id="" class="form-control" placeholder="Enter brand"
@@ -249,7 +244,7 @@
                                 current download-file path: <?php echo $this_product->product_info['download']; ?>
                             </div>
 
-                            <button class="btn btn-primary" type="submit" name="submit">UPDATE</button>
+                            <button class="btn btn-primary" type="submit" name="submit">Confirm</button>
                             <a href="product.php"> <input class="btn btn-danger" value="Cancel"> </a>
                         </form>
                         <br/><br/>
